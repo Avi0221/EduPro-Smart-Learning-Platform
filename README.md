@@ -1,7 +1,7 @@
 # 🎓 EduPro – Smart Learning Platform  
 > _A Smart Course Discovery and Learning Management Application_
 
-![EduPro Banner](/assests/LOGO.png)
+![EduPro Banner](README.md/assets/LOGO.png)
 ![Status](https://img.shields.io/badge/Status-Development-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
@@ -22,12 +22,12 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 
 | Screen | Preview |
 |:-------|:--------:|
-| Splash & Onboarding | ![Splash Screen](/assests/01_LAUNCHING.jpg) ![Onboarding](/assests/02_INTRO-01.jpg) |
-| Login / Sign Up | ![Login](/assests/07_LOGIN.jpg) ![Signup](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=0-1&t=MO95F9otJWH1m6Ki-1) |
-| Home Dashboard | ![Dashboard](/assests/16_HOME.jpg) |
-| Course Details | ![Course Details](/assests/19_POPULAR%20COURSES.jpg) |
-| Enrolled Courses | ![Enrolled Courses](/assests/21_COURSES%20LIST.jpg) |
-| Profile & Settings | ![Profile Page](/assests/50_PROFILES.jpg) |
+| Splash & Onboarding | ![Splash Screen](/assets/01_LAUNCHING.jpg) ![Onboarding](/assets/02_INTRO-01.jpg) |
+| Login / Sign Up | ![Login](/assets/07_LOGIN.jpg) ![Signup](/assets/06_REGISTER%20NOW.jpg) |
+| Home Dashboard | ![Dashboard](/assets/16_HOME.jpg) |
+| Course Details | ![Course Details](/assets/19_POPULAR%20COURSES.jpg) |
+| Enrolled Courses | ![Enrolled Courses](/assets/21_COURSES%20LIST.jpg) |
+| Profile & Settings | ![Profile Page](/assets/50_PROFILES.jpg) |
 
 > 💡 Add real screenshots or Figma links here to give your repository a **visual appeal**.  
 > For example:  
