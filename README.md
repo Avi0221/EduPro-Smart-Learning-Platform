@@ -1,7 +1,7 @@
 # 🎓 EduPro – Smart Learning Platform  
 > _A Smart Course Discovery and Learning Management Application_
 
-![EduPro Banner](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-18&t=MO95F9otJWH1m6Ki-1)
+![EduPro Banner](C:\Users\avina\OneDrive\Desktop\EduPro\Assests\LOGO.png)
 ![Status](https://img.shields.io/badge/Status-Development-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
@@ -31,7 +31,7 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 
 > 💡 Add real screenshots or Figma links here to give your repository a **visual appeal**.  
 > For example:  
-> `[View Full UI in Figma](https://www.figma.com/design/FrG1kzbnPj47SHlA3aIrau/EDUPRO-E-LEARNING-APP---Community---Copy-?node-id=0-1&t=60XxsiFODvJLAT3N-1)`
+> (https://www.figma.com/design/FrG1kzbnPj47SHlA3aIrau/EDUPRO-E-LEARNING-APP---Community---Copy-?node-id=0-1&t=60XxsiFODvJLAT3N-1)
 
 ---
 
