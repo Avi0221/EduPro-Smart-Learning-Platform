@@ -24,9 +24,7 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 |:-------|:--------:|
 |Splash Screen | <img src="/assets/01_LAUNCHING.jpg" width="250" height="500" alt="EduPro Splash Screen"/>|
 
-| Login / Sign Up | <img src="/assets/07_LOGIN.jpg" width="250" height="500" alt="Login"/>
- <img src="/assets/06_REGISTER NOW.jpg" width="250" height="500" alt="SignUP"/>
- |
+| Login / Sign Up | <img src="/assets/07_LOGIN.jpg" width="250" height="500" alt="Login"/>|<img src="/assets/06_REGISTER NOW.jpg" width="250" height="500" alt="SignUP"/>|
 | Home Dashboard | <img src="/assets/16_HOME.jpg" width="250" height="500" alt="DashBoard"/>|
 | Course Details | <img src="/assets/19_POPULAR COURSES.jpg" width="250" height="500" alt="Course Detail"/>|
 | Enrolled Courses | <img src="/assets/21_COURSES LIST.jpg" width="250" height="500" alt="Enrolled Course"/>|
