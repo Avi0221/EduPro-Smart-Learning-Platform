@@ -149,6 +149,20 @@ npm start
 ```
 
 ---
+## 👨‍💻 Contributors
+
+| Name | Role | GitHub |
+|------|------|---------|
+| Avinash | Project Maintainer | [@Avi0221](https://github.com/Avi0221) |
+|Ahmed Hassan | -------------- | [@chintaman2004](https://github.com/chintaman2004) |
+<!-- | Gaurav Kumar | Backend Developer | [@gauravkumar](https://github.com/gauravkumar) |
+| Arkit Kumar | QA & Documentation | [@arkitkumar](https://github.com/arkitkumar) | -->
+
+
+
+
+
+---
 
 ## 🧾 Expected Outcomes
 
