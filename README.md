@@ -22,13 +22,19 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 
 | Screen | Preview |
 |:-------|:--------:|
-<img src="/assets/01_LAUNCHING.jpg" width="250" height="500" alt="EduPro Splash Screen"/>
+|Splash Screen |!<img src="/assets/01_LAUNCHING.jpg" width="250" height="500" alt="EduPro Splash Screen"/>|
 
-| Login / Sign Up | ![Login](/assets/07_LOGIN.jpg) ![Signup](/assets/06_REGISTER%20NOW.jpg) |
-| Home Dashboard | ![Dashboard](/assets/16_HOME.jpg) |
-| Course Details | ![Course Details](/assets/19_POPULAR%20COURSES.jpg) |
-| Enrolled Courses | ![Enrolled Courses](/assets/21_COURSES%20LIST.jpg) |
-| Profile & Settings | ![Profile Page](/assets/50_PROFILES.jpg) |
+| Login / Sign Up | !<img src="/assets/07_LOGIN.jpg" width="250" height="500" alt="Login"/>
+ !<img src="/assets/06_REGISTER NOW.jpg" width="250" height="500" alt="SignUP"/>
+ |
+| Home Dashboard | !<img src="/assets/16_HOME.jpg" width="250" height="500" alt="DashBoard"/>
+ |
+| Course Details | !<img src="/assets/19_POPULAR COURSES.jpg" width="250" height="500" alt="Course Detail"/>
+ |
+| Enrolled Courses | !<img src="/assets/21_COURSES LIST.jpg" width="250" height="500" alt="Enrolled Course"/>
+ |
+| Profile & Settings | !<img src="/assets/50_PROFILES.jpg" width="250" height="500" alt="Profile"/>
+ |
 
 > 💡 Add real screenshots or Figma links here to give your repository a **visual appeal**.  
 > For example:  
