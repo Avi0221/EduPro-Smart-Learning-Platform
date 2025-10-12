@@ -22,7 +22,8 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 
 | Screen | Preview |
 |:-------|:--------:|
-| Splash & Onboarding | ![Splash Screen](/assets/01_LAUNCHING.jpg) ![Onboarding](/assets/02_INTRO-01.jpg) |
+<img src="./assets/splash.png" width="250" height="500" alt="EduPro Splash Screen"/>
+
 | Login / Sign Up | ![Login](/assets/07_LOGIN.jpg) ![Signup](/assets/06_REGISTER%20NOW.jpg) |
 | Home Dashboard | ![Dashboard](/assets/16_HOME.jpg) |
 | Course Details | ![Course Details](/assets/19_POPULAR%20COURSES.jpg) |
