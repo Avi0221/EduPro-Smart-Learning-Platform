@@ -1,7 +1,7 @@
 # 🎓 EduPro – Smart Learning Platform  
 > _A Smart Course Discovery and Learning Management Application_
 
-![EduPro Banner](https://img.shields.io/badge/Project-EduPro-purple?style=for-the-badge)
+![EduPro Banner](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-18&t=MO95F9otJWH1m6Ki-1)
 ![Status](https://img.shields.io/badge/Status-Development-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
@@ -22,16 +22,16 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 
 | Screen | Preview |
 |:-------|:--------:|
-| Splash & Onboarding | ![Splash Screen](https://via.placeholder.com/350x700?text=Splash+Screen) ![Onboarding](https://via.placeholder.com/350x700?text=Onboarding+Screens) |
-| Login / Sign Up | ![Login](https://via.placeholder.com/350x700?text=Login+Screen) ![Signup](https://via.placeholder.com/350x700?text=SignUp+Screen) |
-| Home Dashboard | ![Dashboard](https://via.placeholder.com/350x700?text=Home+Dashboard) |
-| Course Details | ![Course Details](https://via.placeholder.com/350x700?text=Course+Details+Page) |
-| Enrolled Courses | ![Enrolled Courses](https://via.placeholder.com/350x700?text=My+Courses+Dashboard) |
-| Profile & Settings | ![Profile Page](https://via.placeholder.com/350x700?text=Profile+Settings) |
+| Splash & Onboarding | ![Splash Screen](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-18&t=MO95F9otJWH1m6Ki-1) ![Onboarding](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=0-1&t=MO95F9otJWH1m6Ki-1) |
+| Login / Sign Up | ![Login](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-263&t=MO95F9otJWH1m6Ki-1) ![Signup](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=0-1&t=MO95F9otJWH1m6Ki-1) |
+| Home Dashboard | ![Dashboard](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-725&t=MO95F9otJWH1m6Ki-1) |
+| Course Details | ![Course Details](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-1697&t=MO95F9otJWH1m6Ki-1) |
+| Enrolled Courses | ![Enrolled Courses](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-2749&t=MO95F9otJWH1m6Ki-1) |
+| Profile & Settings | ![Profile Page](https://www.figma.com/design/HYaz3MO7q3qw1tKpJ3Hacx/EDUPRO-E-LEARNING-APP---Community-?node-id=1-4103&t=MO95F9otJWH1m6Ki-1) |
 
 > 💡 Add real screenshots or Figma links here to give your repository a **visual appeal**.  
 > For example:  
-> `[View Full UI in Figma](https://www.figma.com/file/your-figma-project-link)`
+> `[View Full UI in Figma](https://www.figma.com/design/FrG1kzbnPj47SHlA3aIrau/EDUPRO-E-LEARNING-APP---Community---Copy-?node-id=0-1&t=60XxsiFODvJLAT3N-1)`
 
 ---
 
@@ -173,5 +173,5 @@ It combines technology, interactivity, and smart features to help learners and e
 
 **👤 Project Maintainer:** Avinash  
 📧 Email: avinash2596360@gmail.com  
-🌐 LinkedIn: [linkedin.com/in/your-profile](www.linkedin.com/in/avinashkumar0205)  
-💻 GitHub: [github.com/your-username](https://github.com/Avi0221)
+🌐 LinkedIn: (www.linkedin.com/in/avinashkumar0205)  
+💻 GitHub:(https://github.com/Avi0221)
