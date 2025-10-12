@@ -70,14 +70,14 @@ EduPro aims to **empower learners** with the right tools and **enable educators*
 
 ```mermaid
 graph TD;
-A[Frontend - Flutter/React] --> B[Backend - Node.js/Express];
-B --> C[Database - MySQL/Firebase/MongoDB];
-B --> D[Authentication - Firebase Auth/JWT];
+A[Frontend - Flutter] --> B[Backend - Node.js/Firebase];
+B --> C[Database - Firebase Firestore/MongoDB];
+B --> D[Authentication - Firebase Auth];
 B --> E[Cloud Hosting - AWS/Firebase Hosting];
 ```
 
 **Data Flow:**
-1. User logs in securely (Firebase Auth / JWT).  
+1. User logs in securely (Firebase Auth).  
 2. Backend verifies credentials and retrieves role-based dashboard.  
 3. Students browse, enroll, and track progress.  
 4. Data updates are stored in real-time via database sync.
@@ -88,10 +88,10 @@ B --> E[Cloud Hosting - AWS/Firebase Hosting];
 
 | Component | Technology |
 |------------|-------------|
-| **Frontend** | Flutter / React |
-| **Backend** | Node.js (Express) |
-| **Database** | MySQL / Firebase |
-| **Authentication** | Firebase Auth / JWT |
+| **Frontend** | Flutter  |
+| **Backend** | Node.js/Firebase|
+| **Database** |  Firebase Firestore/MongoDB |
+| **Authentication** | Firebase Auth |
 | **Cloud Storage** | AWS S3 / Firebase Storage |
 | **Testing** | Postman |
 | **Version Control** | Git & GitHub |
@@ -102,11 +102,11 @@ B --> E[Cloud Hosting - AWS/Firebase Hosting];
 
 | Phase | Duration | Key Deliverables |
 |--------|-----------|------------------|
-| Phase 1 | Week 1–2 | Requirement Gathering & UI Design |
-| Phase 2 | Week 3–5 | Backend API & Database Setup |
-| Phase 3 | Week 6–8 | Frontend Integration |
-| Phase 4 | Week 9–10 | Testing & Debugging |
-| Phase 5 | Week 11 | Deployment & Documentation |
+| Phase 1 | Week 1 | Requirement Gathering & UI Design |
+| Phase 2 | Week 2 | Backend API & Database Setup |
+| Phase 3 | Week 3 | Frontend Integration |
+| Phase 4 | Week 4 | Testing & Debugging |
+| Phase 5 | Week 5 | Deployment & Documentation |
 
 ---
 
@@ -137,7 +137,7 @@ B --> E[Cloud Hosting - AWS/Firebase Hosting];
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/EduPro.git
+git clone https://github.com/Avi0221/EduPro-Smart-Learning-Platform.git
 
 # Navigate to project directory
 cd EduPro
@@ -172,6 +172,6 @@ It combines technology, interactivity, and smart features to help learners and e
 ## 📬 Contact
 
 **👤 Project Maintainer:** Avinash  
-📧 Email: [your-email@example.com]  
-🌐 LinkedIn: [linkedin.com/in/your-profile](https://linkedin.com/in/your-profile)  
-💻 GitHub: [github.com/your-username](https://github.com/your-username)
+📧 Email: avinash2596360@gmail.com  
+🌐 LinkedIn: [linkedin.com/in/your-profile](www.linkedin.com/in/avinashkumar0205)  
+💻 GitHub: [github.com/your-username](https://github.com/Avi0221)
