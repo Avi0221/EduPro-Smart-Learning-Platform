@@ -153,10 +153,12 @@ npm start
 
 | Name | Role | GitHub |
 |------|------|---------|
-| Avinash | Project Maintainer | [@Avi0221](https://github.com/Avi0221) |
-|Ahmed Hassan | -------------- | [@chintaman2004](https://github.com/chintaman2004) |
-<!-- | Gaurav Kumar | Backend Developer | [@gauravkumar](https://github.com/gauravkumar) |
-| Arkit Kumar | QA & Documentation | [@arkitkumar](https://github.com/arkitkumar) | -->
+| Avinash | Project Maintainer | [Avinash](https://github.com/Avi0221) |
+|Ahmed Hassan | -------------- | [Ahmed Hassan](https://github.com/chintaman2004) |
+|Alina Gulzar|----------------|[Alina Gulzar](https://github.com/AlinaFatimaGulzar)|
+|Wanjiru Kogie|---------------|[Wanjiru Kogie](https://github.com/wanjirukogie-stack)|
+|Chandan Kumar|---------------|[Chandan Kumar](https://github.com/Chandan-Kumar-cse)|
+
 
 
 
