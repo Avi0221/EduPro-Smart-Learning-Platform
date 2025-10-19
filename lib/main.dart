@@ -1,6 +1,8 @@
 import 'package:edupro/screens/Home_Screen.dart';
 import 'package:flutter/material.dart';
-
+import 'packages:edupro/screens/edit_profile_page.dart';
+import 'packages:edupro/screens/notification_settings_page.dart';
+import 'packages:edupro/screens/profile_settings_page.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -32,7 +34,13 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: HomeScreen(),
+       initialRoute: '/',
+      routes: {
+        '/': (context) => const HomeScreen(),
+        '/edit-profile': (context) => const EditProfilePage(),
+        '/notifications': (context) => const NotificationSettingsPage(),
+        '/profile-settings': (context) => const ProfileSettingsPage(),
+      },
     );
   }
 }
