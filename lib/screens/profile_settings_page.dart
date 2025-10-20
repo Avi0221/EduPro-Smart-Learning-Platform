@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'edit_profile_page.dart';
 
 class ProfileSettingsPage extends StatelessWidget {
-  const ProfileSettingsPage({Key? key}) : super(key: key);
+  const ProfileSettingsPage({super.key});
 
   final String userName = 'Alex';
   final String email = 'hernandex.redial@gmail.ac.in';
@@ -20,7 +20,12 @@ class ProfileSettingsPage extends StatelessWidget {
             subtitle: Text(email),
           ),
           const Divider(),
-          _buildSettingItem(context, Icons.edit, 'Edit Profile', const EditProfilePage()),
+          _buildSettingItem(
+            context,
+            Icons.edit,
+            'Edit Profile',
+            const EditProfilePage(),
+          ),
           _buildSettingItem(context, Icons.payment, 'Payment Option'),
           _buildSettingItem(context, Icons.notifications, 'Notifications'),
           _buildSettingItem(context, Icons.security, 'Security'),
@@ -37,19 +42,33 @@ class ProfileSettingsPage extends StatelessWidget {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'HOME'),
           BottomNavigationBarItem(icon: Icon(Icons.book), label: 'MY COURSES'),
           BottomNavigationBarItem(icon: Icon(Icons.mail), label: 'INBOX'),
-          BottomNavigationBarItem(icon: Icon(Icons.payment), label: 'TRANSACTION'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.payment),
+            label: 'TRANSACTION',
+          ),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'PROFILE'),
         ],
       ),
     );
   }
 
-  Widget _buildSettingItem(BuildContext context, IconData icon, String title, [Widget? page]) {
+  Widget _buildSettingItem(
+    BuildContext context,
+    IconData icon,
+    String title, [
+    Widget? page,
+  ]) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
       trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-      onTap: page != null ? () => Navigator.push(context, MaterialPageRoute(builder: (_) => page)) : null,
+      onTap:
+          page != null
+              ? () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (_) => page),
+              )
+              : null,
     );
   }
 }

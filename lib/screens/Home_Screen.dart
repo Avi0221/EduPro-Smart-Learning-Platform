@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use, file_names
+
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -42,8 +44,14 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.search), label: "Explore"),
-          BottomNavigationBarItem(icon: Icon(Icons.menu_book_rounded), label: "Programs"),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: "Profile"),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.menu_book_rounded),
+            label: "Programs",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: "Profile",
+          ),
         ],
       ),
     );
@@ -88,7 +96,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.teal, width: 1.5),
                   ),
-                  child: const Icon(Icons.notifications_none, color: Colors.teal),
+                  child: const Icon(
+                    Icons.notifications_none,
+                    color: Colors.teal,
+                  ),
                 ),
               ],
             ),
@@ -105,7 +116,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Colors.grey.withOpacity(0.1),
                     blurRadius: 8,
                     offset: const Offset(0, 4),
-                  )
+                  ),
                 ],
               ),
               child: Row(
@@ -131,8 +142,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Icon(Icons.tune, color: Colors.white, size: 20),
-                  )
+                    child: const Icon(
+                      Icons.tune,
+                      color: Colors.white,
+                      size: 20,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -150,12 +165,22 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: const [
-                  Text("25% OFF*",
-                      style: TextStyle(color: Colors.white, fontWeight: FontWeight.w600)),
+                  Text(
+                    "25% OFF*",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                   SizedBox(height: 6),
-                  Text("Today's Special",
-                      style: TextStyle(
-                          color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                  Text(
+                    "Today's Special",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
                   SizedBox(height: 6),
                   Text(
                     "Get a discount for every course order.\nOnly valid for today!",
@@ -174,10 +199,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "Categories",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18, color: Color(0xFF1B1D3A)),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color(0xFF1B1D3A),
+                  ),
                 ),
-                Text("SEE ALL",
-                    style: TextStyle(color: Color(0xFF3A8DFF), fontWeight: FontWeight.w600)),
+                Text(
+                  "SEE ALL",
+                  style: TextStyle(
+                    color: Color(0xFF3A8DFF),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 12),
@@ -199,10 +232,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   "Popular Courses",
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 18, color: Color(0xFF1B1D3A)),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color(0xFF1B1D3A),
+                  ),
                 ),
-                Text("SEE ALL",
-                    style: TextStyle(color: Color(0xFF3A8DFF), fontWeight: FontWeight.w600)),
+                Text(
+                  "SEE ALL",
+                  style: TextStyle(
+                    color: Color(0xFF3A8DFF),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 12),
@@ -235,11 +276,21 @@ class _HomeScreenState extends State<HomeScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
-                Text("Top Mentor",
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 18, color: Color(0xFF1B1D3A))),
-                Text("SEE ALL",
-                    style: TextStyle(color: Color(0xFF3A8DFF), fontWeight: FontWeight.w600)),
+                Text(
+                  "Top Mentor",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Color(0xFF1B1D3A),
+                  ),
+                ),
+                Text(
+                  "SEE ALL",
+                  style: TextStyle(
+                    color: Color(0xFF3A8DFF),
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
               ],
             ),
             const SizedBox(height: 16),
@@ -311,7 +362,7 @@ class _CourseCard extends StatelessWidget {
             color: Colors.grey.withOpacity(0.1),
             blurRadius: 6,
             offset: const Offset(0, 4),
-          )
+          ),
         ],
       ),
       child: Column(
@@ -324,40 +375,53 @@ class _CourseCard extends StatelessWidget {
               color: Color(0xFFEAEAFF),
               borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
             ),
-            child: const Icon(Icons.play_circle_fill,
-                color: Color(0xFF6C63FF), size: 40),
+            child: const Icon(
+              Icons.play_circle_fill,
+              color: Color(0xFF6C63FF),
+              size: 40,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.all(12),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(category,
-                    style: const TextStyle(
-                        color: Colors.orange,
-                        fontSize: 12,
-                        fontWeight: FontWeight.w500)),
+                Text(
+                  category,
+                  style: const TextStyle(
+                    color: Colors.orange,
+                    fontSize: 12,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
                 const SizedBox(height: 4),
-                Text(title,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFF1B1D3A))),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF1B1D3A),
+                  ),
+                ),
                 const SizedBox(height: 6),
                 Row(
                   children: [
-                    Text(price,
-                        style: const TextStyle(
-                            color: Color(0xFF3A8DFF),
-                            fontWeight: FontWeight.bold)),
+                    Text(
+                      price,
+                      style: const TextStyle(
+                        color: Color(0xFF3A8DFF),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                     const SizedBox(width: 8),
                     const Icon(Icons.star, color: Colors.amber, size: 16),
                     Text(rating, style: const TextStyle(color: Colors.grey)),
                     const SizedBox(width: 6),
-                    Text("| $students Std",
-                        style:
-                        const TextStyle(color: Colors.grey, fontSize: 12))
+                    Text(
+                      "| $students Std",
+                      style: const TextStyle(color: Colors.grey, fontSize: 12),
+                    ),
                   ],
-                )
+                ),
               ],
             ),
           ),
@@ -390,8 +454,7 @@ class _MentorCard extends StatelessWidget {
           const SizedBox(height: 6),
           Text(
             name,
-            style:
-            const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
           ),
         ],
       ),
@@ -407,9 +470,14 @@ class _PlaceholderScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(title,
-          style: const TextStyle(
-              fontSize: 22, fontWeight: FontWeight.bold, color: Colors.grey)),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 22,
+          fontWeight: FontWeight.bold,
+          color: Colors.grey,
+        ),
+      ),
     );
   }
 }

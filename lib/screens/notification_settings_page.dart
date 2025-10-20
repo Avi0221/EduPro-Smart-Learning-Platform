@@ -1,10 +1,13 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 
 class NotificationSettingsPage extends StatefulWidget {
-  const NotificationSettingsPage({Key? key}) : super(key: key);
+  const NotificationSettingsPage({super.key});
 
   @override
-  _NotificationSettingsPageState createState() => _NotificationSettingsPageState();
+  _NotificationSettingsPageState createState() =>
+      _NotificationSettingsPageState();
 }
 
 class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
@@ -23,20 +26,24 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Notification Settings'), centerTitle: true),
+      appBar: AppBar(
+        title: const Text('Notification Settings'),
+        centerTitle: true,
+      ),
       body: ListView(
-        children: notificationSettings.keys.map((String key) {
-          return SwitchListTile(
-            title: Text(key),
-            value: notificationSettings[key]!,
-            onChanged: (bool value) {
-              setState(() {
-                notificationSettings[key] = value;
-              });
-            },
-            activeColor: Colors.blue,
-          );
-        }).toList(),
+        children:
+            notificationSettings.keys.map((String key) {
+              return SwitchListTile(
+                title: Text(key),
+                value: notificationSettings[key]!,
+                onChanged: (bool value) {
+                  setState(() {
+                    notificationSettings[key] = value;
+                  });
+                },
+                activeThumbColor: Colors.blue,
+              );
+            }).toList(),
       ),
     );
   }

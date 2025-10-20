@@ -1,5 +1,7 @@
 // lib/main.dart
 
+// ignore_for_file: file_names, deprecated_member_use
+
 import 'dart:io' show Platform;
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -21,9 +23,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(const EduProApp());
 }
 
@@ -58,7 +58,10 @@ class EduProApp extends StatelessWidget {
             borderRadius: BorderRadius.circular(14),
             borderSide: const BorderSide(color: Color(0xFFBDBDBD), width: 1.2),
           ),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 16,
+            vertical: 16,
+          ),
         ),
       ),
       routes: {
@@ -118,7 +121,10 @@ class _SplashGateState extends State<SplashGate> {
     super.initState();
     _auth.authStateChanges().listen((user) {
       if (!mounted) return;
-      Navigator.pushReplacementNamed(context, user == null ? '/login' : '/home');
+      Navigator.pushReplacementNamed(
+        context,
+        user == null ? '/login' : '/home',
+      );
     });
   }
 
@@ -212,15 +218,21 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => _busy = true);
     try {
       final apple = await SignInWithApple.getAppleIDCredential(
-        scopes: [AppleIDAuthorizationScopes.email, AppleIDAuthorizationScopes.fullName],
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
       );
       final oauth = OAuthProvider('apple.com').credential(
         idToken: apple.identityToken,
         accessToken: apple.authorizationCode,
       );
       final userCred = await _auth.signInWithCredential(oauth);
-      final fullName = [apple.givenName ?? '', apple.familyName ?? '']
-          .where((s) => s.isNotEmpty).join(' ').trim();
+      final fullName =
+          [
+            apple.givenName ?? '',
+            apple.familyName ?? '',
+          ].where((s) => s.isNotEmpty).join(' ').trim();
       await _upsertUserProfile(
         user: userCred.user!,
         fullName: fullName.isEmpty ? null : fullName,
@@ -253,56 +265,83 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     const _LogoHeader(),
                     const SizedBox(height: 24),
-                    const Text("Let's Sign In.!",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                    const Text(
+                      "Let's Sign In.!",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                     const SizedBox(height: 6),
-                    const Text('Login to Your Account to Continue your Courses',
-                        textAlign: TextAlign.center, style: TextStyle(color: Colors.black54)),
+                    const Text(
+                      'Login to Your Account to Continue your Courses',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.black54),
+                    ),
                     const SizedBox(height: 24),
 
                     Form(
                       key: _formKey,
-                      child: Column(children: [
-                        TextFormField(
-                          controller: _email,
-                          keyboardType: TextInputType.emailAddress,
-                          decoration: const InputDecoration(
-                            labelText: 'Email',
-                            prefixIcon: Icon(Icons.mail_outline),
-                          ),
-                          validator: (v) {
-                            if (v == null || v.trim().isEmpty) return 'Email is required';
-                            final ok = RegExp(r'^\S+@\S+\.\S+$').hasMatch(v.trim());
-                            return ok ? null : 'Enter a valid email';
-                          },
-                        ),
-                        const SizedBox(height: 14),
-                        TextFormField(
-                          controller: _password,
-                          obscureText: _obscure,
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            prefixIcon: const Icon(Icons.lock_outline),
-                            suffixIcon: IconButton(
-                              onPressed: () => setState(() => _obscure = !_obscure),
-                              icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility),
+                      child: Column(
+                        children: [
+                          TextFormField(
+                            controller: _email,
+                            keyboardType: TextInputType.emailAddress,
+                            decoration: const InputDecoration(
+                              labelText: 'Email',
+                              prefixIcon: Icon(Icons.mail_outline),
                             ),
+                            validator: (v) {
+                              if (v == null || v.trim().isEmpty) {
+                                return 'Email is required';
+                              }
+                              final ok = RegExp(
+                                r'^\S+@\S+\.\S+$',
+                              ).hasMatch(v.trim());
+                              return ok ? null : 'Enter a valid email';
+                            },
                           ),
-                          validator: (v) => (v == null || v.isEmpty) ? 'Password is required' : null,
-                        ),
-                      ]),
+                          const SizedBox(height: 14),
+                          TextFormField(
+                            controller: _password,
+                            obscureText: _obscure,
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              prefixIcon: const Icon(Icons.lock_outline),
+                              suffixIcon: IconButton(
+                                onPressed:
+                                    () => setState(() => _obscure = !_obscure),
+                                icon: Icon(
+                                  _obscure
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
+                              ),
+                            ),
+                            validator:
+                                (v) =>
+                                    (v == null || v.isEmpty)
+                                        ? 'Password is required'
+                                        : null,
+                          ),
+                        ],
+                      ),
                     ),
                     const SizedBox(height: 10),
                     Row(
                       children: [
                         Checkbox(
                           value: _remember,
-                          onChanged: (v) => setState(() => _remember = v ?? false),
+                          onChanged:
+                              (v) => setState(() => _remember = v ?? false),
                         ),
                         const Text('Remember Me'),
                         const Spacer(),
-                        TextButton(onPressed: () {}, child: const Text('Forgot Password?')),
+                        TextButton(
+                          onPressed: () {},
+                          child: const Text('Forgot Password?'),
+                        ),
                       ],
                     ),
                     const SizedBox(height: 8),
@@ -331,13 +370,17 @@ class _LoginPageState extends State<LoginPage> {
                     ),
 
                     const SizedBox(height: 22),
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                      const Text("Don't have an Account? "),
-                      TextButton(
-                        onPressed: () => Navigator.pushNamed(context, '/signup'),
-                        child: const Text('SIGN UP'),
-                      ),
-                    ]),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text("Don't have an Account? "),
+                        TextButton(
+                          onPressed:
+                              () => Navigator.pushNamed(context, '/signup'),
+                          child: const Text('SIGN UP'),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -397,7 +440,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
     if (picked != null) {
       _dob.text =
-      '${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}';
+          '${picked.year}-${picked.month.toString().padLeft(2, '0')}-${picked.day.toString().padLeft(2, '0')}';
     }
   }
 
@@ -441,15 +484,21 @@ class _SignUpPageState extends State<SignUpPage> {
     setState(() => _busy = true);
     try {
       final apple = await SignInWithApple.getAppleIDCredential(
-        scopes: [AppleIDAuthorizationScopes.email, AppleIDAuthorizationScopes.fullName],
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+          AppleIDAuthorizationScopes.fullName,
+        ],
       );
       final oauth = OAuthProvider('apple.com').credential(
         idToken: apple.identityToken,
         accessToken: apple.authorizationCode,
       );
       final userCred = await _auth.signInWithCredential(oauth);
-      final fullName = [apple.givenName ?? '', apple.familyName ?? '']
-          .where((s) => s.isNotEmpty).join(' ').trim();
+      final fullName =
+          [
+            apple.givenName ?? '',
+            apple.familyName ?? '',
+          ].where((s) => s.isNotEmpty).join(' ').trim();
       await _upsertUserProfile(
         user: userCred.user!,
         fullName: fullName.isEmpty ? null : fullName,
@@ -519,11 +568,18 @@ class _SignUpPageState extends State<SignUpPage> {
                   children: [
                     const _LogoHeader(),
                     const SizedBox(height: 16),
-                    const Text('Getting Started.!',
-                        style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700)),
+                    const Text(
+                      'Getting Started.!',
+                      style: TextStyle(
+                        fontSize: 22,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
                     const SizedBox(height: 6),
-                    const Text('Create an Account to Continue your allCourses',
-                        style: TextStyle(color: Colors.black54)),
+                    const Text(
+                      'Create an Account to Continue your allCourses',
+                      style: TextStyle(color: Colors.black54),
+                    ),
                     const SizedBox(height: 18),
 
                     Form(
@@ -536,8 +592,11 @@ class _SignUpPageState extends State<SignUpPage> {
                               labelText: 'Full Name',
                               prefixIcon: Icon(Icons.person_outline),
                             ),
-                            validator: (v) =>
-                            (v == null || v.trim().isEmpty) ? 'Full name required' : null,
+                            validator:
+                                (v) =>
+                                    (v == null || v.trim().isEmpty)
+                                        ? 'Full name required'
+                                        : null,
                           ),
                           const SizedBox(height: 12),
                           TextFormField(
@@ -569,8 +628,12 @@ class _SignUpPageState extends State<SignUpPage> {
                               prefixIcon: Icon(Icons.mail_outline),
                             ),
                             validator: (v) {
-                              if (v == null || v.trim().isEmpty) return 'Email required';
-                              final ok = RegExp(r'^\S+@\S+\.\S+$').hasMatch(v.trim());
+                              if (v == null || v.trim().isEmpty) {
+                                return 'Email required';
+                              }
+                              final ok = RegExp(
+                                r'^\S+@\S+\.\S+$',
+                              ).hasMatch(v.trim());
                               return ok ? null : 'Enter a valid email';
                             },
                           ),
@@ -585,17 +648,28 @@ class _SignUpPageState extends State<SignUpPage> {
                           ),
                           const SizedBox(height: 12),
                           DropdownButtonFormField<String>(
-                            value: _gender,
+                            initialValue: _gender,
                             decoration: const InputDecoration(
                               labelText: 'Gender',
                               prefixIcon: Icon(Icons.wc_outlined),
                             ),
                             items: const [
-                              DropdownMenuItem(value: 'Female', child: Text('Female')),
-                              DropdownMenuItem(value: 'Male', child: Text('Male')),
-                              DropdownMenuItem(value: 'Other', child: Text('Other')),
                               DropdownMenuItem(
-                                  value: 'Prefer not to say', child: Text('Prefer not to say')),
+                                value: 'Female',
+                                child: Text('Female'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Male',
+                                child: Text('Male'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Other',
+                                child: Text('Other'),
+                              ),
+                              DropdownMenuItem(
+                                value: 'Prefer not to say',
+                                child: Text('Prefer not to say'),
+                              ),
                             ],
                             onChanged: (v) => setState(() => _gender = v),
                           ),
@@ -607,12 +681,20 @@ class _SignUpPageState extends State<SignUpPage> {
                               labelText: 'Password',
                               prefixIcon: const Icon(Icons.lock_outline),
                               suffixIcon: IconButton(
-                                onPressed: () => setState(() => _obscure = !_obscure),
-                                icon: Icon(_obscure ? Icons.visibility_off : Icons.visibility),
+                                onPressed:
+                                    () => setState(() => _obscure = !_obscure),
+                                icon: Icon(
+                                  _obscure
+                                      ? Icons.visibility_off
+                                      : Icons.visibility,
+                                ),
                               ),
                             ),
-                            validator: (v) =>
-                            (v == null || v.length < 6) ? 'Min 6 characters' : null,
+                            validator:
+                                (v) =>
+                                    (v == null || v.length < 6)
+                                        ? 'Min 6 characters'
+                                        : null,
                           ),
                         ],
                       ),
@@ -628,9 +710,12 @@ class _SignUpPageState extends State<SignUpPage> {
                             children: [
                               Checkbox(
                                 value: _agree,
-                                onChanged: (v) => setState(() => _agree = v ?? false),
+                                onChanged:
+                                    (v) => setState(() => _agree = v ?? false),
                               ),
-                              const Expanded(child: Text('Agree to Terms & Conditions')),
+                              const Expanded(
+                                child: Text('Agree to Terms & Conditions'),
+                              ),
                             ],
                           ),
                         ),
@@ -649,9 +734,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        _SocialCircle(icon: FontAwesomeIcons.google, onTap: _continueWithGoogle),
+                        _SocialCircle(
+                          icon: FontAwesomeIcons.google,
+                          onTap: _continueWithGoogle,
+                        ),
                         const SizedBox(width: 16),
-                        _SocialCircle(icon: FontAwesomeIcons.apple, onTap: _continueWithApple),
+                        _SocialCircle(
+                          icon: FontAwesomeIcons.apple,
+                          onTap: _continueWithApple,
+                        ),
                       ],
                     ),
                     const SizedBox(height: 16),
@@ -660,7 +751,11 @@ class _SignUpPageState extends State<SignUpPage> {
                       children: [
                         const Text('Already have an Account? '),
                         TextButton(
-                          onPressed: () => Navigator.pushReplacementNamed(context, '/login'),
+                          onPressed:
+                              () => Navigator.pushReplacementNamed(
+                                context,
+                                '/login',
+                              ),
                           child: const Text('SIGN IN'),
                         ),
                       ],
@@ -688,62 +783,86 @@ class HomePage extends StatelessWidget {
     final u = _auth.currentUser;
     return Scaffold(
       appBar: AppBar(title: const Text('EDUPRO Home')),
-      body: u == null
-          ? const Center(child: Text('No user'))
-          : Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(children: [
-              CircleAvatar(
-                radius: 28,
-                backgroundImage: (u.photoURL != null) ? NetworkImage(u.photoURL!) : null,
-                child: (u.photoURL == null) ? const Icon(Icons.person, size: 28) : null,
-              ),
-              const SizedBox(width: 14),
-              Expanded(
-                child: StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
-                  stream: _db.collection('users').doc(u.uid).snapshots(),
-                  builder: (context, snap) {
-                    final data = snap.data?.data();
-                    final fullName = data?['fullName'] ?? u.displayName ?? 'Unnamed';
-                    final email = u.email ?? '(no email)';
-                    final providers =
-                    u.providerData.map((p) => p.providerId).join(', ');
-                    return Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+      body:
+          u == null
+              ? const Center(child: Text('No user'))
+              : Padding(
+                padding: const EdgeInsets.all(20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Row(
                       children: [
-                        Text(fullName,
-                            style: const TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w600)),
-                        Text(email),
-                        Text('Providers: $providers'),
+                        CircleAvatar(
+                          radius: 28,
+                          backgroundImage:
+                              (u.photoURL != null)
+                                  ? NetworkImage(u.photoURL!)
+                                  : null,
+                          child:
+                              (u.photoURL == null)
+                                  ? const Icon(Icons.person, size: 28)
+                                  : null,
+                        ),
+                        const SizedBox(width: 14),
+                        Expanded(
+                          child: StreamBuilder<
+                            DocumentSnapshot<Map<String, dynamic>>
+                          >(
+                            stream:
+                                _db.collection('users').doc(u.uid).snapshots(),
+                            builder: (context, snap) {
+                              final data = snap.data?.data();
+                              final fullName =
+                                  data?['fullName'] ??
+                                  u.displayName ??
+                                  'Unnamed';
+                              final email = u.email ?? '(no email)';
+                              final providers = u.providerData
+                                  .map((p) => p.providerId)
+                                  .join(', ');
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    fullName,
+                                    style: const TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  Text(email),
+                                  Text('Providers: $providers'),
+                                ],
+                              );
+                            },
+                          ),
+                        ),
                       ],
-                    );
-                  },
+                    ),
+                    const SizedBox(height: 20),
+                    ElevatedButton.icon(
+                      icon: const Icon(Icons.logout),
+                      label: const Text('Sign Out'),
+                      onPressed: () async {
+                        if (!kIsWeb) {
+                          try {
+                            await gsi.GoogleSignIn().signOut();
+                          } catch (_) {}
+                        }
+                        await _auth.signOut();
+                        if (context.mounted) {
+                          Navigator.pushNamedAndRemoveUntil(
+                            context,
+                            '/login',
+                            (_) => false,
+                          );
+                        }
+                      },
+                    ),
+                  ],
                 ),
               ),
-            ]),
-            const SizedBox(height: 20),
-            ElevatedButton.icon(
-              icon: const Icon(Icons.logout),
-              label: const Text('Sign Out'),
-              onPressed: () async {
-                if (!kIsWeb) {
-                  try {
-                    await gsi.GoogleSignIn().signOut();
-                  } catch (_) {}
-                }
-                await _auth.signOut();
-                if (context.mounted) {
-                  Navigator.pushNamedAndRemoveUntil(context, '/login', (_) => false);
-                }
-              },
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
@@ -757,23 +876,35 @@ class _LogoHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-      Container(
-        height: 46,
-        width: 46,
-        decoration: BoxDecoration(
-          color: const Color(0xFFEAF2FF),
-          borderRadius: BorderRadius.circular(10),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          height: 46,
+          width: 46,
+          decoration: BoxDecoration(
+            color: const Color(0xFFEAF2FF),
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: const Icon(Icons.school_outlined, color: Color(0xFF3A68FF)),
         ),
-        child: const Icon(Icons.school_outlined, color: Color(0xFF3A68FF)),
-      ),
-      const SizedBox(width: 10),
-      Column(crossAxisAlignment: CrossAxisAlignment.start, children: const [
-        Text('EDUPRO', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700)),
-        SizedBox(height: 2),
-        Text('LEARN FROM HOME', style: TextStyle(fontSize: 11, color: Colors.black54)),
-      ]),
-    ]);
+        const SizedBox(width: 10),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text(
+              'EDUPRO',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+            ),
+            SizedBox(height: 2),
+            Text(
+              'LEARN FROM HOME',
+              style: TextStyle(fontSize: 11, color: Colors.black54),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }
 
@@ -781,7 +912,11 @@ class _GradientCTA extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final IconData trailingIcon;
-  const _GradientCTA({required this.label, required this.onPressed, required this.trailingIcon});
+  const _GradientCTA({
+    required this.label,
+    required this.onPressed,
+    required this.trailingIcon,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -794,29 +929,43 @@ class _GradientCTA extends StatelessWidget {
           onTap: onPressed,
           child: Ink(
             decoration: BoxDecoration(
-              gradient: const LinearGradient(colors: [Color(0xFFFF7BB2), Color(0xFFFF3D8B)]),
+              gradient: const LinearGradient(
+                colors: [Color(0xFFFF7BB2), Color(0xFFFF3D8B)],
+              ),
               borderRadius: BorderRadius.circular(30),
               boxShadow: [
                 BoxShadow(
                   color: const Color(0xFFFF3D8B).withOpacity(0.28),
                   blurRadius: 16,
                   offset: const Offset(0, 6),
-                )
+                ),
               ],
             ),
-            child: Stack(alignment: Alignment.center, children: [
-              Text(label,
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.w600, fontSize: 16)),
-              Positioned(
-                right: 8,
-                child: Container(
-                  height: 38,
-                  width: 38,
-                  decoration: const BoxDecoration(color: Colors.white, shape: BoxShape.circle),
-                  child: Icon(trailingIcon, color: const Color(0xFFFF3D8B)),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16,
+                  ),
                 ),
-              ),
-            ]),
+                Positioned(
+                  right: 8,
+                  child: Container(
+                    height: 38,
+                    width: 38,
+                    decoration: const BoxDecoration(
+                      color: Colors.white,
+                      shape: BoxShape.circle,
+                    ),
+                    child: Icon(trailingIcon, color: const Color(0xFFFF3D8B)),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -828,14 +977,16 @@ class _OrDivider extends StatelessWidget {
   final String text;
   const _OrDivider({required this.text});
   @override
-  Widget build(BuildContext context) => Row(children: [
-    const Expanded(child: Divider(thickness: 1, color: Color(0xFFE0E0E0))),
-    Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10),
-      child: Text(text, style: const TextStyle(color: Colors.black54)),
-    ),
-    const Expanded(child: Divider(thickness: 1, color: Color(0xFFE0E0E0))),
-  ]);
+  Widget build(BuildContext context) => Row(
+    children: [
+      const Expanded(child: Divider(thickness: 1, color: Color(0xFFE0E0E0))),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: Text(text, style: const TextStyle(color: Colors.black54)),
+      ),
+      const Expanded(child: Divider(thickness: 1, color: Color(0xFFE0E0E0))),
+    ],
+  );
 }
 
 class _SocialCircle extends StatelessWidget {
