@@ -3,7 +3,7 @@ import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
 class EditProfilePage extends StatefulWidget {
-  const EditProfilePage({Key? key}) : super(key: key);
+  const EditProfilePage({super.key});
 
   @override
   EditProfilePageState createState() => EditProfilePageState();
@@ -38,8 +38,14 @@ class EditProfilePageState extends State<EditProfilePage> {
                   onTap: _pickImage,
                   child: CircleAvatar(
                     radius: 50,
-                    backgroundImage: _profileImage != null ? FileImage(_profileImage!) : null,
-                    child: _profileImage == null ? const Icon(Icons.camera_alt, size: 40) : null,
+                    backgroundImage:
+                        _profileImage != null
+                            ? FileImage(_profileImage!)
+                            : null,
+                    child:
+                        _profileImage == null
+                            ? const Icon(Icons.camera_alt, size: 40)
+                            : null,
                   ),
                 ),
               ),
@@ -49,10 +55,14 @@ class EditProfilePageState extends State<EditProfilePage> {
               _buildTextField('Date of Birth'),
               _buildTextField('Email'),
               _buildPhoneField(),
-              _buildDropdown('Gender', ['Male', 'Female', 'Other'], gender, (String? val) {
+              _buildDropdown('Gender', ['Male', 'Female', 'Other'], gender, (
+                String? val,
+              ) {
                 if (val != null) setState(() => gender = val);
               }),
-              _buildDropdown('Student', ['Yes', 'No'], studentStatus, (String? val) {
+              _buildDropdown('Student', ['Yes', 'No'], studentStatus, (
+                String? val,
+              ) {
                 if (val != null) setState(() => studentStatus = val);
               }),
               const SizedBox(height: 20),
@@ -75,24 +85,32 @@ class EditProfilePageState extends State<EditProfilePage> {
   }
 
   Widget _buildTextField(String label) => TextFormField(
-        decoration: InputDecoration(labelText: label),
-        validator: (value) => value!.isEmpty ? 'Enter $label' : null,
-      );
+    decoration: InputDecoration(labelText: label),
+    validator: (value) => value!.isEmpty ? 'Enter $label' : null,
+  );
 
   Widget _buildPhoneField() => TextFormField(
-        decoration: const InputDecoration(
-          labelText: 'Phone Number',
-          prefixText: '+91 ',
-        ),
-        keyboardType: TextInputType.phone,
-        validator: (value) => value!.isEmpty ? 'Enter phone number' : null,
-      );
+    decoration: const InputDecoration(
+      labelText: 'Phone Number',
+      prefixText: '+91 ',
+    ),
+    keyboardType: TextInputType.phone,
+    validator: (value) => value!.isEmpty ? 'Enter phone number' : null,
+  );
 
-  Widget _buildDropdown(String label, List<String> items, String selected, ValueChanged<String?> onChanged) {
+  Widget _buildDropdown(
+    String label,
+    List<String> items,
+    String selected,
+    ValueChanged<String?> onChanged,
+  ) {
     return DropdownButtonFormField<String>(
       decoration: InputDecoration(labelText: label),
       initialValue: selected,
-      items: items.map((item) => DropdownMenuItem(value: item, child: Text(item))).toList(),
+      items:
+          items
+              .map((item) => DropdownMenuItem(value: item, child: Text(item)))
+              .toList(),
       onChanged: onChanged,
     );
   }
