@@ -4,13 +4,15 @@ import 'edit_profile_page.dart';
 class ProfileSettingsPage extends StatelessWidget {
   const ProfileSettingsPage({super.key});
 
-  final String userName = 'Alex';
-  final String email = 'hernandex.redial@gmail.ac.in';
+  final String userName = 'AVINASH';
+  final String email = 'avinash2596360@gmail.com';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Profile')),
+      backgroundColor: Colors.purple.shade50,
+      appBar: AppBar(title: const Text('Profile'),
+      backgroundColor:Colors.purple.shade100),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

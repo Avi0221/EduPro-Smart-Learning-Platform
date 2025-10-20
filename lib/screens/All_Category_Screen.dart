@@ -120,10 +120,10 @@ class _AllCategoryScreenState extends State<AllCategoryScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFF8F9FA),
+      backgroundColor:Colors.purple.shade50,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.purple.shade100,
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_new_rounded,
               color: Colors.black87, size: 20),
@@ -167,7 +167,7 @@ class _AllCategoryScreenState extends State<AllCategoryScreen>
           // Search Bar
           Container(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-            color: Colors.white,
+            color: Colors.purple.shade50,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

@@ -41,7 +41,7 @@ class _NotificationSettingsPageState extends State<NotificationSettingsPage> {
                     notificationSettings[key] = value;
                   });
                 },
-                activeThumbColor: Colors.blue,
+                // activeThumbColor: Colors.blue,
               );
             }).toList(),
       ),

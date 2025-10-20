@@ -138,7 +138,9 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              _GradientButton(text: "Sign In", onPressed: () {}),
+              _GradientButton(text: "Sign In", onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),) );
+              }),
 
               const SizedBox(height: 30),
               const Center(
@@ -238,7 +240,7 @@ class SignUpScreen extends StatelessWidget {
               const SizedBox(height: 20),
 
               _GradientButton(text: "Sign Up", onPressed: () {
-                Navigator.push(context, HomeScreen());
+                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
               }),
 
               const SizedBox(height: 30),
