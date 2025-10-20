@@ -6,6 +6,8 @@ void main() {
 }
 
 class EduProApp extends StatelessWidget {
+  const EduProApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
