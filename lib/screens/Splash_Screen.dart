@@ -1,3 +1,26 @@
+// import 'package:edupro/screens/Splash_Screen.dart';
+// import 'package:flutter/material.dart';
+//
+// void main() {
+//   runApp(EduProApp());
+// }
+//
+// class EduProApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'EDUPRO',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         primaryColor: Color(0xFF6A5AE0),
+//         scaffoldBackgroundColor: Colors.white,
+//         fontFamily: 'Inter',
+//       ),
+//       home: SplashScreen(),
+//     );
+//   }
+// }
+
 // ========== SCREEN 1: SPLASH SCREEN ==========
 // ignore_for_file: library_private_types_in_public_api, unnecessary_import, use_build_context_synchronously, file_names, deprecated_member_use
 
