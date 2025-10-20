@@ -1,4 +1,5 @@
 import 'package:edupro/screens/Splash_Screen.dart';
+import 'package:edupro/screens/auth_screens.dart';
 import 'package:flutter/material.dart';
 
 void main() {
