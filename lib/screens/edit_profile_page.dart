@@ -106,7 +106,7 @@ class EditProfilePageState extends State<EditProfilePage> {
   ) {
     return DropdownButtonFormField<String>(
       decoration: InputDecoration(labelText: label),
-      initialValue: selected,
+      // initialValue: selected,
       items:
           items
               .map((item) => DropdownMenuItem(value: item, child: Text(item)))

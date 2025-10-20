@@ -1,6 +1,11 @@
 // ignore_for_file: deprecated_member_use, file_names
 
+import 'package:edupro/screens/All_Category_Screen.dart';
+import 'package:edupro/screens/Notification_Screen.dart';
+import 'package:edupro/screens/profile_settings_page.dart';
 import 'package:flutter/material.dart';
+
+import 'All_programs_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -41,15 +46,21 @@ class _HomeScreenState extends State<HomeScreen> {
         selectedItemColor: const Color(0xFF6C63FF),
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.search), label: "Explore"),
+        items: [
+          const BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
+          BottomNavigationBarItem(icon: IconButton(onPressed: (){
+            Navigator.push(context, MaterialPageRoute(builder: (context) =>AllCategoryScreen(),));
+          }, icon: Icon(Icons.search)), label: "Explore"),
           BottomNavigationBarItem(
-            icon: Icon(Icons.menu_book_rounded),
+            icon: IconButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => PopularCoursesScreen(),));
+            }, icon:Icon(Icons.menu_book_outlined)),
             label: "Programs",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline),
+            icon: IconButton(onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileSettingsPage(),));
+            }, icon: const Icon(Icons.person)),
             label: "Profile",
           ),
         ],
@@ -94,12 +105,11 @@ class _HomeScreenState extends State<HomeScreen> {
                   width: 40,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
-                    border: Border.all(color: Colors.teal, width: 1.5),
+                    border: Border.all(color: Colors.blueAccent, width: 1.5),
                   ),
-                  child: const Icon(
-                    Icons.notifications_none,
-                    color: Colors.teal,
-                  ),
+                  child:IconButton(onPressed: (){
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationScreen(),));
+                  }, icon: Icon(Icons.notifications),padding: EdgeInsets.all(0),color: Colors.blueAccent,)
                 ),
               ],
             ),
@@ -195,8 +205,8 @@ class _HomeScreenState extends State<HomeScreen> {
             // Categories
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   "Categories",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -204,11 +214,13 @@ class _HomeScreenState extends State<HomeScreen> {
                     color: Color(0xFF1B1D3A),
                   ),
                 ),
-                Text(
-                  "SEE ALL",
-                  style: TextStyle(
-                    color: Color(0xFF3A8DFF),
-                    fontWeight: FontWeight.w600,
+                GestureDetector(
+                  child: Text(
+                    "SEE ALL",
+                    style: TextStyle(
+                      color: Color(0xFF3A8DFF),
+                      fontWeight: FontWeight.w600,
+                    ),
                   ),
                 ),
               ],
