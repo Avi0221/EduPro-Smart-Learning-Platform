@@ -24,6 +24,7 @@
 // ========== SCREEN 1: SPLASH SCREEN ==========
 // ignore_for_file: library_private_types_in_public_api, unnecessary_import, use_build_context_synchronously, file_names, deprecated_member_use
 
+import 'package:edupro/screens/auth_screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -131,7 +132,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 onPressed: () {
                   Navigator.pushReplacement(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginScreen()),
+                    MaterialPageRoute(builder: (context) => LetsYouInScreen()),
                   );
                 },
                 child: Text(
@@ -223,7 +224,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                     } else {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                        MaterialPageRoute(builder: (context) => LetsYouInScreen()),
                       );
                     }
                   },
