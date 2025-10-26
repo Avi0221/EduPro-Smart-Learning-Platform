@@ -4,14 +4,14 @@ import 'package:edupro/screens/program_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-class PopularCoursesScreen extends StatefulWidget {
-  const PopularCoursesScreen({super.key});
+class AllProgramsScreen extends StatefulWidget {
+  const AllProgramsScreen({super.key});
 
   @override
-  State<PopularCoursesScreen> createState() => _PopularCoursesScreenState();
+  State<AllProgramsScreen> createState() => _AllProgramsScreenState();
 }
 
-class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
+class _AllProgramsScreenState extends State<AllProgramsScreen> {
   String selectedCategory = 'All';
   final int _selectedIndex = 0;
 

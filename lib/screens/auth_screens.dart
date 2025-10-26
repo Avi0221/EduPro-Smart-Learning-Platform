@@ -1,6 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:edupro/screens/Home_Screen.dart';
+import 'package:edupro/screens/home_screen.dart';
 import 'package:flutter/material.dart';
 
 // Excelerate Gradient

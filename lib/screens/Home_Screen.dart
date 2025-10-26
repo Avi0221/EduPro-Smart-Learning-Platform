@@ -1,11 +1,10 @@
 // ignore_for_file: deprecated_member_use, file_names
 
-import 'package:edupro/screens/all_Category_Screen.dart';
-import 'package:edupro/screens/Notification_Screen.dart';
+import 'package:edupro/screens/all_category_screen.dart';
+import 'package:edupro/screens/notification_screen.dart';
+import 'package:edupro/screens/popular_sourses_screen.dart';
 import 'package:edupro/screens/profile_settings_page.dart';
 import 'package:flutter/material.dart';
-
-import 'all_programs_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
