@@ -1,6 +1,6 @@
-import 'package:edupro/screens/Splash_Screen.dart';
-import 'package:edupro/screens/auth_screens.dart';
-import 'package:edupro/screens/program_listing_screen.dart';
+import 'package:edupro/screens/course_details_page.dart';
+import 'package:edupro/screens/course_selection_page.dart';
+import 'package:edupro/screens/enrollment_form_page.dart';
 import 'package:flutter/material.dart';
 
 // Import all main screens
@@ -41,7 +41,35 @@ class EduProApp extends StatelessWidget {
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6A5AE0)),
       ),
-      home:ProgramListScreen(),
+      home: SplashScreen(),
+      // routes: {
+      //   '/home': (context) => const HomeScreen(),
+      //   '/programDetails':
+      //       (context) => const ProgramDetailsPage(courseTitle: null),
+      //   '/curriculum': (context) => const CurriculumPage(),
+      //   '/reviews': (context) => const ReviewsPage(),
+      //   '/writeReview': (context) => const WriteReviewPage(),
+      //   '/paymentMethod': (context) => const PaymentMethodPage(),
+      //   '/paymentSuccess': (context) => const PaymentSuccessPage(),
+      //   '/myCourses': (context) => const MyCoursesPage(),
+      //   '/profileSettings': (context) => const ProfileSettingsPage(),
+      //   '/editProfile': (context) => const EditProfilePage(),
+      //   '/notifications': (context) => const NotificationScreen(),
+      //   '/notificationSettings': (context) => const NotificationSettingsPage(),
+      //   '/categories': (context) => const AllCategoryScreen(),
+      //   '/programs': (context) => const AllProgramsScreen(),
+      //   '/popular': (context) => const PopularCoursesScreen(),
+      //   '/auth': (context) => const LetsYouInScreen(),
+      //   '/courseSelection': (context) => const CourseSelectionPage(),
+      //   '/courseDetails':
+      //       (context) => const CourseDetailsPage(
+      //     courseTitle: null,
+      //     courseSubtitle: null,
+      //     coursePrice: null,
+      //     courseImage: null,
+      //   ),
+      //   '/enrollmentForm': (context) => const EnrollmentFormPage(),
+      // },
     );
   }
 }
