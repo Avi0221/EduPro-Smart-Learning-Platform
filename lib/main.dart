@@ -44,7 +44,8 @@ class EduProApp extends StatelessWidget {
       home: const SplashScreen(),
       routes: {
         '/home': (context) => const HomeScreen(),
-        '/programDetails': (context) => const ProgramDetailsPage(),
+        '/programDetails':
+            (context) => const ProgramDetailsPage(courseTitle: null),
         '/curriculum': (context) => const CurriculumPage(),
         '/reviews': (context) => const ReviewsPage(),
         '/writeReview': (context) => const WriteReviewPage(),
@@ -60,7 +61,13 @@ class EduProApp extends StatelessWidget {
         '/popular': (context) => const PopularCoursesScreen(),
         '/auth': (context) => const LetsYouInScreen(),
         '/courseSelection': (context) => const CourseSelectionPage(),
-        '/courseDetails': (context) => const CourseDetailsPage(),
+        '/courseDetails':
+            (context) => const CourseDetailsPage(
+              courseTitle: null,
+              courseSubtitle: null,
+              coursePrice: null,
+              courseImage: null,
+            ),
         '/enrollmentForm': (context) => const EnrollmentFormPage(),
       },
     );

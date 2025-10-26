@@ -218,7 +218,9 @@ class _AllProgramsScreenState extends State<AllProgramsScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => ProgramDetailsPage(),
+                                builder:
+                                    (context) =>
+                                        ProgramDetailsPage(courseTitle: null),
                               ),
                             );
                           },

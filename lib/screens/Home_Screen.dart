@@ -1,6 +1,11 @@
+// lib/screens/home_screen.dart
 // ignore_for_file: file_names, deprecated_member_use
 
+import 'package:edupro/screens/course_details_page.dart';
+import 'package:edupro/screens/profile_settings_page.dart';
 import 'package:flutter/material.dart';
+import 'package:edupro/screens/notification_screen.dart';
+import 'package:edupro/screens/checkout_page.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -10,258 +15,155 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final List<Map<String, dynamic>> courses = [
+  int _selectedIndex = 0;
+
+  final List<Map<String, dynamic>> _courses = [
     {
-      'title': 'Graphic Design Advanced',
-      'category': 'Graphic Design',
-      'price': '7058/-',
-      'rating': 4.2,
-      'students': 7830,
-      'image': Icons.brush,
+      'title': 'Flutter Development',
+      'subtitle': 'Build beautiful mobile apps',
+      'image': 'assets/images/flutter_course.png',
+      'price': 49.99,
     },
     {
-      'title': 'Web Developer Concepts',
-      'category': 'Web Development',
-      'price': '499/-',
-      'rating': 4.9,
-      'students': 14580,
-      'image': Icons.code,
+      'title': 'Python for Beginners',
+      'subtitle': 'Learn Python from scratch',
+      'image': 'assets/images/python_course.png',
+      'price': 39.99,
     },
     {
-      'title': 'Digital Marketing Course',
-      'category': 'SEO & Marketing',
-      'price': '1299/-',
-      'rating': 4.5,
-      'students': 8900,
-      'image': Icons.campaign,
+      'title': 'UI/UX Design',
+      'subtitle': 'Design modern user experiences',
+      'image': 'assets/images/uiux_course.png',
+      'price': 59.99,
     },
   ];
 
+  final List<Widget> _screens = [];
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
+    super.initState();
+    _screens.addAll([
+      _buildHomeContent(),
+      const NotificationScreen(),
+      const CheckoutPage(),
+      const ProfileSettingsPage(),
+    ]);
+  }
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  Widget _buildHomeContent() {
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F5F5),
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
         title: const Text(
-          'Home',
-          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+          "Learnify",
+          style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white),
         ),
+        backgroundColor: const Color(0xFF6A5AE0),
         centerTitle: true,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications_none, color: Colors.black),
-            onPressed: () {},
-          ),
-        ],
       ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Banner Section
-            Container(
-              height: 160,
-              decoration: BoxDecoration(
-                color: Colors.blue[100],
-                borderRadius: BorderRadius.circular(12),
+            const Text(
+              "Popular Courses",
+              style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF333333),
               ),
-              child: Row(
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: const [
-                          Text(
-                            'Learn Anytime, Anywhere!',
-                            style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black87,
+            ),
+            const SizedBox(height: 16),
+            Expanded(
+              child: ListView.builder(
+                itemCount: _courses.length,
+                itemBuilder: (context, index) {
+                  final course = _courses[index];
+                  return GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder:
+                              (context) => CourseDetailsPage(
+                                courseTitle: course['title'],
+                                courseSubtitle: course['subtitle'],
+                                courseImage: course['image'],
+                                coursePrice: course['price'],
+                              ),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(16),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.1),
+                            blurRadius: 6,
+                            spreadRadius: 2,
+                            offset: const Offset(0, 3),
+                          ),
+                        ],
+                      ),
+                      child: Row(
+                        children: [
+                          ClipRRect(
+                            borderRadius: const BorderRadius.only(
+                              topLeft: Radius.circular(16),
+                              bottomLeft: Radius.circular(16),
+                            ),
+                            child: Image.asset(
+                              course['image'],
+                              height: 90,
+                              width: 90,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          SizedBox(height: 8),
-                          Text(
-                            'Explore top-rated online courses now.',
-                            style: TextStyle(
-                              fontSize: 14,
-                              color: Colors.black54,
+                          const SizedBox(width: 16),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  course['title'],
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                const SizedBox(height: 6),
+                                Text(
+                                  course['subtitle'],
+                                  style: const TextStyle(color: Colors.grey),
+                                ),
+                                const SizedBox(height: 6),
+                                Text(
+                                  "\$${course['price']}",
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                    color: Color(0xFF6A5AE0),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                         ],
                       ),
                     ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Center(
-                      child: Icon(
-                        Icons.school,
-                        color: Colors.blue.shade700,
-                        size: 60,
-                      ),
-                    ),
-                  ),
-                ],
+                  );
+                },
               ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // Category Section
-            const Text(
-              'Top Categories',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-            ),
-            const SizedBox(height: 12),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  _buildCategoryCard('Graphic Design', Icons.brush),
-                  _buildCategoryCard('Programming', Icons.computer),
-                  _buildCategoryCard('Marketing', Icons.campaign),
-                  _buildCategoryCard('3D Design', Icons.design_services),
-                ],
-              ),
-            ),
-
-            const SizedBox(height: 24),
-
-            // Popular Courses Section
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                const Text(
-                  'Popular Courses',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushNamed(context, '/popularCourses');
-                  },
-                  child: const Text('See All'),
-                ),
-              ],
-            ),
-            const SizedBox(height: 12),
-
-            ListView.builder(
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              itemCount: courses.length,
-              itemBuilder: (context, index) {
-                final course = courses[index];
-                return GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(
-                      context,
-                      '/courseDetails', // OR '/programDetails'
-                      arguments: {
-                        'title': course['title'],
-                        'duration': '4 Weeks',
-                        'price': course['price'],
-                        'category': course['category'],
-                        'rating': course['rating'],
-                        'students': course['students'],
-                      },
-                    );
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.only(bottom: 16),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.05),
-                          blurRadius: 8,
-                          offset: const Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            color: Colors.blue.shade50,
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(12),
-                              bottomLeft: Radius.circular(12),
-                            ),
-                          ),
-                          child: Icon(
-                            course['image'],
-                            size: 40,
-                            color: Colors.blue,
-                          ),
-                        ),
-                        Expanded(
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  course['category'],
-                                  style: const TextStyle(
-                                    fontSize: 12,
-                                    color: Colors.blueGrey,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  course['title'],
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Text(
-                                  course['price'],
-                                  style: const TextStyle(
-                                    fontSize: 16,
-                                    color: Colors.blue,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                const SizedBox(height: 4),
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                      size: 16,
-                                    ),
-                                    const SizedBox(width: 4),
-                                    Text('${course['rating']}'),
-                                    const SizedBox(width: 8),
-                                    Text(
-                                      '• ${course['students']} Students',
-                                      style: const TextStyle(
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              },
             ),
           ],
         ),
@@ -269,26 +171,26 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildCategoryCard(String title, IconData icon) {
-    return Container(
-      margin: const EdgeInsets.only(right: 12),
-      padding: const EdgeInsets.all(12),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 6,
-            offset: const Offset(0, 2),
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: _screens[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        selectedItemColor: const Color(0xFF6A5AE0),
+        unselectedItemColor: Colors.grey,
+        onTap: _onItemTapped,
+        items: const [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.notifications),
+            label: 'Notifications',
           ),
-        ],
-      ),
-      child: Column(
-        children: [
-          Icon(icon, color: Colors.blue, size: 30),
-          const SizedBox(height: 6),
-          Text(title, style: const TextStyle(fontSize: 13)),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

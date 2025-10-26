@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class ProgramDetailsPage extends StatefulWidget {
-  const ProgramDetailsPage({super.key});
+  const ProgramDetailsPage({super.key, required courseTitle});
 
   @override
   State<ProgramDetailsPage> createState() => _ProgramDetailsPageState();

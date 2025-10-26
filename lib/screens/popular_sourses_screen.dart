@@ -207,7 +207,9 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
                               context,
                               MaterialPageRoute(
                                 builder:
-                                    (context) => const ProgramDetailsPage(),
+                                    (context) => const ProgramDetailsPage(
+                                      courseTitle: null,
+                                    ),
                                 settings: RouteSettings(
                                   arguments: {
                                     'title': filteredCourses[index].title,
