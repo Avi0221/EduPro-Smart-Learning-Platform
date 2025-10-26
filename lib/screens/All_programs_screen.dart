@@ -79,31 +79,6 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
         .toList();
   }
 
-  // // void _onNavItemTapped(int index) {
-  //   setState(() {
-  //     _selectedIndex = index;
-  //   });
-  //
-  //   // Navigate to different screens based on index
-  //   switch (index) {
-  //     case 0:
-  //     // Already on home
-  //       break;
-  //     case 1:
-  //     // Navigate to My Courses
-  //       break;
-  //     case 2:
-  //     // Navigate to Inbox
-  //       break;
-  //     case 3:
-  //     // Navigate to Transaction
-  //       break;
-  //     case 4:
-  //     // Navigate to Profile
-  //       break;
-  //   }
-  // }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -226,44 +201,7 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
           ),
         ],
       ),
-      // bottomNavigationBar: BottomNavigationBar(
-      //   currentIndex: _selectedIndex,
-      //   onTap: _onNavItemTapped,
-      //   type: BottomNavigationBarType.fixed,
-      //   backgroundColor: Colors.white,
-      //   selectedItemColor: const Color(0xFF00897B),
-      //   unselectedItemColor: Colors.grey,
-      //   selectedFontSize: 12,
-      //   unselectedFontSize: 12,
-      //   elevation: 8,
-      //   items: const [
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.home_outlined),
-      //       activeIcon: Icon(Icons.home),
-      //       label: 'HOME',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.play_circle_outline),
-      //       activeIcon: Icon(Icons.play_circle),
-      //       label: 'MY COURSES',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.inbox_outlined),
-      //       activeIcon: Icon(Icons.inbox),
-      //       label: 'INBOX',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.receipt_long_outlined),
-      //       activeIcon: Icon(Icons.receipt_long),
-      //       label: 'TRANSACTION',
-      //     ),
-      //     BottomNavigationBarItem(
-      //       icon: Icon(Icons.person_outline),
-      //       activeIcon: Icon(Icons.person),
-      //       label: 'PROFILE',
-      //     ),
-      //   ],
-      // ),
+
     );
   }
 }

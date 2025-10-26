@@ -1,5 +1,6 @@
 import 'package:edupro/screens/Splash_Screen.dart';
 import 'package:edupro/screens/auth_screens.dart';
+import 'package:edupro/screens/program_listing_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class EduProApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Inter',
       ),
-      home: SplashScreen(),
+      home:ProgramListScreen(),
     );
   }
 }
