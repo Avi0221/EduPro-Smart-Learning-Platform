@@ -1,7 +1,7 @@
 // ignore_for_file: deprecated_member_use
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:edupro/screens/program_details_page.dart';
 
 class PopularCoursesScreen extends StatefulWidget {
   const PopularCoursesScreen({super.key});
@@ -49,7 +49,7 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
       isBookmarked: true,
     ),
     Course(
-      title: 'Web Developer conce..',
+      title: 'Web Developer Concepts',
       category: 'Web Development',
       price: '499/-',
       rating: 4.9,
@@ -85,16 +85,12 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
         Navigator.pushReplacementNamed(context, '/');
         break;
       case 1:
-        // My Courses - Stay on current screen or navigate
         break;
       case 2:
-        // Inbox
         break;
       case 3:
-        // Transaction
         break;
       case 4:
-        // Profile
         break;
     }
   }
@@ -123,9 +119,7 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.search, color: Colors.black87),
-            onPressed: () {
-              // Search functionality
-            },
+            onPressed: () {},
           ),
         ],
         systemOverlayStyle: const SystemUiOverlayStyle(
@@ -208,7 +202,23 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
                         return CourseCard(
                           course: filteredCourses[index],
                           onTap: () {
-                            // Navigate to course details
+                            // ✅ Navigate to ProgramDetailsPage with course data
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => const ProgramDetailsPage(),
+                                settings: RouteSettings(
+                                  arguments: {
+                                    'title': filteredCourses[index].title,
+                                    'category': filteredCourses[index].category,
+                                    'price': filteredCourses[index].price,
+                                    'rating': filteredCourses[index].rating,
+                                    'students': filteredCourses[index].students,
+                                  },
+                                ),
+                              ),
+                            );
                           },
                           onBookmarkTap: () {
                             setState(() {
@@ -301,11 +311,11 @@ class CourseCard extends StatelessWidget {
       case 'Programming':
         return const Color(0xFFFF6B6B);
       case 'Web Development':
-        return const Color(0xFFFF9800);
+        return const Color(0xFF2196F3);
       case 'SEO & Marketing':
-        return const Color(0xFFFF9800);
-      default:
         return const Color(0xFF00897B);
+      default:
+        return const Color(0xFF607D8B);
     }
   }
 
@@ -328,30 +338,21 @@ class CourseCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            // Course Image
+            // Course Image Placeholder
             Container(
               width: 120,
               height: 120,
               decoration: BoxDecoration(
-                color: Colors.black,
+                color: Colors.grey[900],
                 borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(12),
                   bottomLeft: Radius.circular(12),
                 ),
               ),
-              child: ClipRRect(
-                borderRadius: const BorderRadius.only(
-                  topLeft: Radius.circular(12),
-                  bottomLeft: Radius.circular(12),
-                ),
-                child: Container(
-                  color: Colors.grey[900],
-                  child: const Icon(
-                    Icons.play_circle_outline,
-                    color: Colors.white54,
-                    size: 40,
-                  ),
-                ),
+              child: const Icon(
+                Icons.play_circle_outline,
+                color: Colors.white54,
+                size: 40,
               ),
             ),
 
