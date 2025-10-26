@@ -42,34 +42,7 @@ class EduProApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6A5AE0)),
       ),
       home: SplashScreen(),
-      // routes: {
-      //   '/home': (context) => const HomeScreen(),
-      //   '/programDetails':
-      //       (context) => const ProgramDetailsPage(courseTitle: null),
-      //   '/curriculum': (context) => const CurriculumPage(),
-      //   '/reviews': (context) => const ReviewsPage(),
-      //   '/writeReview': (context) => const WriteReviewPage(),
-      //   '/paymentMethod': (context) => const PaymentMethodPage(),
-      //   '/paymentSuccess': (context) => const PaymentSuccessPage(),
-      //   '/myCourses': (context) => const MyCoursesPage(),
-      //   '/profileSettings': (context) => const ProfileSettingsPage(),
-      //   '/editProfile': (context) => const EditProfilePage(),
-      //   '/notifications': (context) => const NotificationScreen(),
-      //   '/notificationSettings': (context) => const NotificationSettingsPage(),
-      //   '/categories': (context) => const AllCategoryScreen(),
-      //   '/programs': (context) => const AllProgramsScreen(),
-      //   '/popular': (context) => const PopularCoursesScreen(),
-      //   '/auth': (context) => const LetsYouInScreen(),
-      //   '/courseSelection': (context) => const CourseSelectionPage(),
-      //   '/courseDetails':
-      //       (context) => const CourseDetailsPage(
-      //     courseTitle: null,
-      //     courseSubtitle: null,
-      //     coursePrice: null,
-      //     courseImage: null,
-      //   ),
-      //   '/enrollmentForm': (context) => const EnrollmentFormPage(),
-      // },
+
     );
   }
 }
