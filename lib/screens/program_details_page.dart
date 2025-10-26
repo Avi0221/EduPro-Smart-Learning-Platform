@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 
 class ProgramDetailsPage extends StatefulWidget {
-  const ProgramDetailsPage({super.key});
+  const ProgramDetailsPage({super.key, required courseTitle});
 
   @override
   State<ProgramDetailsPage> createState() => _ProgramDetailsPageState();
@@ -109,12 +109,12 @@ class _ProgramDetailsPageState extends State<ProgramDetailsPage>
               height: 150,
               child: TabBarView(
                 controller: _tabController,
-                children: [
-                  const Text(
+                children: const [
+                  Text(
                     'Graphic Design is one piece of professional graphic design services that includes posters, flyers, and brochures.',
                     style: TextStyle(fontSize: 14, color: Colors.black54),
                   ),
-                  const Text(
+                  Text(
                     'Section 01: Introduction\n• Why Using Graphic Design\n• Setup Your Graphic Workspace',
                     style: TextStyle(fontSize: 14, color: Colors.black54),
                   ),
@@ -234,7 +234,9 @@ class _ProgramDetailsPageState extends State<ProgramDetailsPage>
               borderRadius: BorderRadius.circular(10),
             ),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pushNamed(context, '/enrollmentForm');
+          },
           child: const Text(
             'Enroll Course - 499/-',
             style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),

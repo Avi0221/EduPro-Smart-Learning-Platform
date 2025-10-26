@@ -1,8 +1,10 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class AllCategoryScreen extends StatefulWidget {
-  const AllCategoryScreen({Key? key}) : super(key: key);
+  const AllCategoryScreen({super.key});
 
   @override
   State<AllCategoryScreen> createState() => _AllCategoryScreenState();
@@ -112,21 +114,26 @@ class _AllCategoryScreenState extends State<AllCategoryScreen>
       return categories;
     }
     return categories
-        .where((category) =>
-        category.name.toLowerCase().contains(_searchQuery.toLowerCase()))
+        .where(
+          (category) =>
+              category.name.toLowerCase().contains(_searchQuery.toLowerCase()),
+        )
         .toList();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:Colors.purple.shade50,
+      backgroundColor: Colors.purple.shade50,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.purple.shade100,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_new_rounded,
-              color: Colors.black87, size: 20),
+          icon: const Icon(
+            Icons.arrow_back_ios_new_rounded,
+            color: Colors.black87,
+            size: 20,
+          ),
           onPressed: () {
             if (Navigator.canPop(context)) {
               Navigator.pop(context);
@@ -176,9 +183,10 @@ class _AllCategoryScreenState extends State<AllCategoryScreen>
                     color: const Color(0xFFF5F5F5),
                     borderRadius: BorderRadius.circular(14),
                     border: Border.all(
-                      color: _searchQuery.isNotEmpty
-                          ? const Color(0xFF2196F3).withOpacity(0.3)
-                          : Colors.transparent,
+                      color:
+                          _searchQuery.isNotEmpty
+                              ? const Color(0xFF2196F3).withOpacity(0.3)
+                              : Colors.transparent,
                       width: 1.5,
                     ),
                   ),
@@ -195,21 +203,27 @@ class _AllCategoryScreenState extends State<AllCategoryScreen>
                         color: Colors.grey[400],
                         fontSize: 15,
                       ),
-                      prefixIcon: Icon(Icons.search_rounded,
-                          color: Colors.grey[400], size: 22),
-                      suffixIcon: _searchQuery.isNotEmpty
-                          ? IconButton(
-                        icon: const Icon(Icons.clear_rounded,
-                            color: Colors.grey),
-                        onPressed: () {
-                          _searchController.clear();
-                          setState(() {
-                            _searchQuery = '';
-                          });
-                          HapticFeedback.lightImpact();
-                        },
-                      )
-                          : null,
+                      prefixIcon: Icon(
+                        Icons.search_rounded,
+                        color: Colors.grey[400],
+                        size: 22,
+                      ),
+                      suffixIcon:
+                          _searchQuery.isNotEmpty
+                              ? IconButton(
+                                icon: const Icon(
+                                  Icons.clear_rounded,
+                                  color: Colors.grey,
+                                ),
+                                onPressed: () {
+                                  _searchController.clear();
+                                  setState(() {
+                                    _searchQuery = '';
+                                  });
+                                  HapticFeedback.lightImpact();
+                                },
+                              )
+                              : null,
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.symmetric(
                         horizontal: 16,
@@ -235,71 +249,72 @@ class _AllCategoryScreenState extends State<AllCategoryScreen>
           ),
 
           Expanded(
-            child: filteredCategories.isEmpty
-                ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(20),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[100],
-                      shape: BoxShape.circle,
+            child:
+                filteredCategories.isEmpty
+                    ? Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(20),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[100],
+                              shape: BoxShape.circle,
+                            ),
+                            child: Icon(
+                              Icons.search_off_rounded,
+                              size: 48,
+                              color: Colors.grey[400],
+                            ),
+                          ),
+                          const SizedBox(height: 20),
+                          Text(
+                            'No categories found',
+                            style: TextStyle(
+                              fontSize: 18,
+                              color: Colors.grey[700],
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          const SizedBox(height: 8),
+                          Text(
+                            'Try searching with different keywords',
+                            style: TextStyle(
+                              fontSize: 14,
+                              color: Colors.grey[500],
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                    : _isGridView
+                    ? GridView.builder(
+                      padding: const EdgeInsets.all(16),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                            crossAxisSpacing: 16,
+                            mainAxisSpacing: 16,
+                            childAspectRatio: 0.95,
+                          ),
+                      itemCount: filteredCategories.length,
+                      itemBuilder: (context, index) {
+                        return CategoryCard(
+                          category: filteredCategories[index],
+                          delay: index * 50,
+                        );
+                      },
+                    )
+                    : ListView.builder(
+                      padding: const EdgeInsets.all(16),
+                      itemCount: filteredCategories.length,
+                      itemBuilder: (context, index) {
+                        return CategoryListTile(
+                          category: filteredCategories[index],
+                          delay: index * 50,
+                        );
+                      },
                     ),
-                    child: Icon(
-                      Icons.search_off_rounded,
-                      size: 48,
-                      color: Colors.grey[400],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  Text(
-                    'No categories found',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.grey[700],
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    'Try searching with different keywords',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[500],
-                    ),
-                  ),
-                ],
-              ),
-            )
-                : _isGridView
-                ? GridView.builder(
-              padding: const EdgeInsets.all(16),
-              gridDelegate:
-              const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2,
-                crossAxisSpacing: 16,
-                mainAxisSpacing: 16,
-                childAspectRatio: 0.95,
-              ),
-              itemCount: filteredCategories.length,
-              itemBuilder: (context, index) {
-                return CategoryCard(
-                  category: filteredCategories[index],
-                  delay: index * 50,
-                );
-              },
-            )
-                : ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: filteredCategories.length,
-              itemBuilder: (context, index) {
-                return CategoryListTile(
-                  category: filteredCategories[index],
-                  delay: index * 50,
-                );
-              },
-            ),
           ),
         ],
       ),
@@ -327,11 +342,7 @@ class CategoryCard extends StatefulWidget {
   final Category category;
   final int delay;
 
-  const CategoryCard({
-    Key? key,
-    required this.category,
-    required this.delay,
-  }) : super(key: key);
+  const CategoryCard({super.key, required this.category, required this.delay});
 
   @override
   State<CategoryCard> createState() => _CategoryCardState();
@@ -352,13 +363,15 @@ class _CategoryCardState extends State<CategoryCard>
       duration: const Duration(milliseconds: 400),
     );
 
-    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
-    );
+    _scaleAnimation = Tween<double>(
+      begin: 0.8,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOutBack));
 
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
     Future.delayed(Duration(milliseconds: widget.delay), () {
       if (mounted) {
@@ -491,10 +504,10 @@ class CategoryListTile extends StatefulWidget {
   final int delay;
 
   const CategoryListTile({
-    Key? key,
+    super.key,
     required this.category,
     required this.delay,
-  }) : super(key: key);
+  });
 
   @override
   State<CategoryListTile> createState() => _CategoryListTileState();
@@ -519,9 +532,10 @@ class _CategoryListTileState extends State<CategoryListTile>
       end: Offset.zero,
     ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
-    _fadeAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
-    );
+    _fadeAnimation = Tween<double>(
+      begin: 0.0,
+      end: 1.0,
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
     Future.delayed(Duration(milliseconds: widget.delay), () {
       if (mounted) {
@@ -565,8 +579,11 @@ class _CategoryListTileState extends State<CategoryListTile>
                   SnackBar(
                     content: Row(
                       children: [
-                        Icon(widget.category.icon,
-                            color: Colors.white, size: 20),
+                        Icon(
+                          widget.category.icon,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                         const SizedBox(width: 12),
                         Expanded(
                           child: Text(
