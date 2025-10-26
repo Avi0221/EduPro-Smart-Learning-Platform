@@ -1,7 +1,7 @@
 # 🎓 EduPro – Smart Learning Platform  
 > _A Smart Course Discovery and Learning Management Application_
 
-![EduPro Banner](/assets/LOGO.png)
+![EduPro Banner](/assets/images/LOGO.png)
 ![Status](https://img.shields.io/badge/Status-Development-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
