@@ -1,9 +1,11 @@
+// ignore_for_file: unused_field, deprecated_member_use
+
 import 'package:edupro/screens/program_details_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class PopularCoursesScreen extends StatefulWidget {
-  const PopularCoursesScreen({Key? key}) : super(key: key);
+  const PopularCoursesScreen({super.key});
 
   @override
   State<PopularCoursesScreen> createState() => _PopularCoursesScreenState();
@@ -11,7 +13,7 @@ class PopularCoursesScreen extends StatefulWidget {
 
 class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
   String selectedCategory = 'All';
-  int _selectedIndex = 0;
+  final int _selectedIndex = 0;
 
   final List<String> categories = [
     'All',
@@ -166,7 +168,7 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
                     labelStyle: TextStyle(
                       color: isSelected ? Colors.white : Colors.black87,
                       fontWeight:
-                      isSelected ? FontWeight.w600 : FontWeight.normal,
+                          isSelected ? FontWeight.w600 : FontWeight.normal,
                     ),
                     padding: const EdgeInsets.symmetric(
                       horizontal: 12,
@@ -183,46 +185,52 @@ class _PopularCoursesScreenState extends State<PopularCoursesScreen> {
 
           // Courses List
           Expanded(
-            child: filteredCourses.isEmpty
-                ? Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.school_outlined,
-                    size: 64,
-                    color: Colors.grey[400],
-                  ),
-                  const SizedBox(height: 16),
-                  Text(
-                    'No courses found',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[600],
-                      fontWeight: FontWeight.w500,
+            child:
+                filteredCourses.isEmpty
+                    ? Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.school_outlined,
+                            size: 64,
+                            color: Colors.grey[400],
+                          ),
+                          const SizedBox(height: 16),
+                          Text(
+                            'No courses found',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: Colors.grey[600],
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    )
+                    : ListView.builder(
+                      padding: const EdgeInsets.all(16),
+                      itemCount: filteredCourses.length,
+                      itemBuilder: (context, index) {
+                        return CourseCard(
+                          course: filteredCourses[index],
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => ProgramDetailsPage(),
+                              ),
+                            );
+                          },
+                          onBookmarkTap: () {
+                            setState(() {
+                              filteredCourses[index].isBookmarked =
+                                  !filteredCourses[index].isBookmarked;
+                            });
+                          },
+                        );
+                      },
                     ),
-                  ),
-                ],
-              ),
-            )
-                : ListView.builder(
-              padding: const EdgeInsets.all(16),
-              itemCount: filteredCourses.length,
-              itemBuilder: (context, index) {
-                return CourseCard(
-                  course: filteredCourses[index],
-                  onTap: () {
-                    Navigator.push(context,MaterialPageRoute(builder: (context) => ProgramDetailsPage(),));
-                  },
-                  onBookmarkTap: () {
-                    setState(() {
-                      filteredCourses[index].isBookmarked =
-                      !filteredCourses[index].isBookmarked;
-                    });
-                  },
-                );
-              },
-            ),
           ),
         ],
       ),
@@ -294,11 +302,11 @@ class CourseCard extends StatelessWidget {
   final VoidCallback onBookmarkTap;
 
   const CourseCard({
-    Key? key,
+    super.key,
     required this.course,
     required this.onTap,
     required this.onBookmarkTap,
-  }) : super(key: key);
+  });
 
   Color _getCategoryColor(String category) {
     switch (category) {
@@ -447,12 +455,11 @@ class CourseCard extends StatelessWidget {
               padding: const EdgeInsets.only(right: 12),
               child: IconButton(
                 icon: Icon(
-                  course.isBookmarked
-                      ? Icons.bookmark
-                      : Icons.bookmark_border,
-                  color: course.isBookmarked
-                      ? const Color(0xFF00897B)
-                      : Colors.grey[400],
+                  course.isBookmarked ? Icons.bookmark : Icons.bookmark_border,
+                  color:
+                      course.isBookmarked
+                          ? const Color(0xFF00897B)
+                          : Colors.grey[400],
                 ),
                 onPressed: onBookmarkTap,
               ),

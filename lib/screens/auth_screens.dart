@@ -1,10 +1,14 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:edupro/screens/Home_Screen.dart';
 import 'package:flutter/material.dart';
 
 // Excelerate Gradient
-const LinearGradient kGradient =
-LinearGradient(colors: [Color(0xFF6C63FF), Color(0xFF3A8DFF)],
-    begin: Alignment.topLeft, end: Alignment.bottomRight);
+const LinearGradient kGradient = LinearGradient(
+  colors: [Color(0xFF6C63FF), Color(0xFF3A8DFF)],
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+);
 
 class LetsYouInScreen extends StatelessWidget {
   const LetsYouInScreen({super.key});
@@ -19,11 +23,14 @@ class LetsYouInScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Let's you in",
-                  style: TextStyle(
-                      fontSize: 28,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B1D3A))),
+              const Text(
+                "Let's you in",
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF1B1D3A),
+                ),
+              ),
               const SizedBox(height: 40),
 
               _SocialButton(
@@ -39,15 +46,22 @@ class LetsYouInScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              const Text("( Or )",
-                  style: TextStyle(color: Colors.grey, fontWeight: FontWeight.w500)),
+              const Text(
+                "( Or )",
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
               const SizedBox(height: 20),
 
               _GradientButton(
                 text: "Sign In with Your Account",
                 onPressed: () {
                   Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => const LoginScreen()));
+                    context,
+                    MaterialPageRoute(builder: (_) => const LoginScreen()),
+                  );
                 },
               ),
 
@@ -55,18 +69,25 @@ class LetsYouInScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don’t have an Account? ",
-                      style: TextStyle(color: Colors.grey)),
+                  const Text(
+                    "Don’t have an Account? ",
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   GestureDetector(
                     onTap: () {
                       Navigator.push(
-                          context, MaterialPageRoute(builder: (_) => const SignUpScreen()));
+                        context,
+                        MaterialPageRoute(builder: (_) => const SignUpScreen()),
+                      );
                     },
-                    child: const Text("SIGN UP",
-                        style: TextStyle(
-                            color: Color(0xFF3A8DFF),
-                            fontWeight: FontWeight.bold)),
-                  )
+                    child: const Text(
+                      "SIGN UP",
+                      style: TextStyle(
+                        color: Color(0xFF3A8DFF),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -97,22 +118,30 @@ class LoginScreen extends StatelessWidget {
                   children: [
                     // Image.asset('assets/LOGO.png', height: 80),
                     const SizedBox(height: 10),
-                    const Text("EDUPRO",
-                        style: TextStyle(
-                            color: Color(0xFF3A2E8A),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                    const Text("LEARN FROM HOME",
-                        style: TextStyle(color: Colors.black54)),
+                    const Text(
+                      "EDUPRO",
+                      style: TextStyle(
+                        color: Color(0xFF3A2E8A),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      "LEARN FROM HOME",
+                      style: TextStyle(color: Colors.black54),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 40),
-              const Text("Let’s Sign In.!",
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B1D3A))),
+              const Text(
+                "Let’s Sign In.!",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF1B1D3A),
+                ),
+              ),
               const SizedBox(height: 6),
               const Text(
                 "Login to Your Account to Continue your Courses",
@@ -122,30 +151,47 @@ class LoginScreen extends StatelessWidget {
 
               const _InputField(hint: "Email", icon: Icons.email_outlined),
               const SizedBox(height: 20),
-              const _InputField(hint: "Password", icon: Icons.lock_outline, isPassword: true),
+              const _InputField(
+                hint: "Password",
+                icon: Icons.lock_outline,
+                isPassword: true,
+              ),
 
               const SizedBox(height: 10),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Row(children: [
-                    Checkbox(value: false, onChanged: (v) {}),
-                    const Text("Remember Me"),
-                  ]),
-                  const Text("Forgot Password?",
-                      style: TextStyle(color: Colors.teal)),
+                  Row(
+                    children: [
+                      Checkbox(value: false, onChanged: (v) {}),
+                      const Text("Remember Me"),
+                    ],
+                  ),
+                  const Text(
+                    "Forgot Password?",
+                    style: TextStyle(color: Colors.teal),
+                  ),
                 ],
               ),
               const SizedBox(height: 20),
 
-              _GradientButton(text: "Sign In", onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),) );
-              }),
+              _GradientButton(
+                text: "Sign In",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+              ),
 
               const SizedBox(height: 30),
               const Center(
-                  child: Text("Or Continue With",
-                      style: TextStyle(color: Colors.grey))),
+                child: Text(
+                  "Or Continue With",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
               const SizedBox(height: 20),
 
               const Row(
@@ -161,18 +207,25 @@ class LoginScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Don’t have an Account? ",
-                      style: TextStyle(color: Colors.grey)),
+                  const Text(
+                    "Don’t have an Account? ",
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const SignUpScreen()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const SignUpScreen()),
+                      );
                     },
-                    child: const Text("SIGN UP",
-                        style: TextStyle(
-                            color: Color(0xFF3A8DFF),
-                            fontWeight: FontWeight.bold)),
-                  )
+                    child: const Text(
+                      "SIGN UP",
+                      style: TextStyle(
+                        color: Color(0xFF3A8DFF),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -203,22 +256,30 @@ class SignUpScreen extends StatelessWidget {
                   children: [
                     // Image.asset('assets/logo.png', height: 80),
                     const SizedBox(height: 10),
-                    const Text("EDUPRO",
-                        style: TextStyle(
-                            color: Color(0xFF3A2E8A),
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold)),
-                    const Text("LEARN FROM HOME",
-                        style: TextStyle(color: Colors.black54)),
+                    const Text(
+                      "EDUPRO",
+                      style: TextStyle(
+                        color: Color(0xFF3A2E8A),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      "LEARN FROM HOME",
+                      style: TextStyle(color: Colors.black54),
+                    ),
                   ],
                 ),
               ),
               const SizedBox(height: 40),
-              const Text("Getting Started.!",
-                  style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF1B1D3A))),
+              const Text(
+                "Getting Started.!",
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                  color: Color(0xFF1B1D3A),
+                ),
+              ),
               const SizedBox(height: 6),
               const Text(
                 "Create an Account to Continue your all Courses",
@@ -228,7 +289,11 @@ class SignUpScreen extends StatelessWidget {
 
               const _InputField(hint: "Email", icon: Icons.email_outlined),
               const SizedBox(height: 20),
-              const _InputField(hint: "Password", icon: Icons.lock_outline, isPassword: true),
+              const _InputField(
+                hint: "Password",
+                icon: Icons.lock_outline,
+                isPassword: true,
+              ),
               const SizedBox(height: 10),
 
               Row(
@@ -239,14 +304,23 @@ class SignUpScreen extends StatelessWidget {
               ),
               const SizedBox(height: 20),
 
-              _GradientButton(text: "Sign Up", onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => HomeScreen(),));
-              }),
+              _GradientButton(
+                text: "Sign Up",
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => HomeScreen()),
+                  );
+                },
+              ),
 
               const SizedBox(height: 30),
               const Center(
-                  child: Text("Or Continue With",
-                      style: TextStyle(color: Colors.grey))),
+                child: Text(
+                  "Or Continue With",
+                  style: TextStyle(color: Colors.grey),
+                ),
+              ),
               const SizedBox(height: 20),
 
               const Row(
@@ -262,18 +336,25 @@ class SignUpScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text("Already have an Account? ",
-                      style: TextStyle(color: Colors.grey)),
+                  const Text(
+                    "Already have an Account? ",
+                    style: TextStyle(color: Colors.grey),
+                  ),
                   GestureDetector(
                     onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (_) => const LoginScreen()));
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => const LoginScreen()),
+                      );
                     },
-                    child: const Text("SIGN IN",
-                        style: TextStyle(
-                            color: Color(0xFF3A8DFF),
-                            fontWeight: FontWeight.bold)),
-                  )
+                    child: const Text(
+                      "SIGN IN",
+                      style: TextStyle(
+                        color: Color(0xFF3A8DFF),
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ],
@@ -290,8 +371,11 @@ class _InputField extends StatelessWidget {
   final String hint;
   final IconData icon;
   final bool isPassword;
-  const _InputField(
-      {required this.hint, required this.icon, this.isPassword = false});
+  const _InputField({
+    required this.hint,
+    required this.icon,
+    this.isPassword = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -301,11 +385,13 @@ class _InputField extends StatelessWidget {
         hintText: hint,
         prefixIcon: Icon(icon, color: Colors.grey),
         suffixIcon:
-        isPassword ? const Icon(Icons.visibility_off_outlined) : null,
+            isPassword ? const Icon(Icons.visibility_off_outlined) : null,
         filled: true,
         fillColor: Colors.white,
-        contentPadding:
-        const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 20,
+          vertical: 18,
+        ),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: BorderSide.none,
@@ -334,17 +420,20 @@ class _GradientButton extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(text,
-                style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold)),
+            Text(
+              text,
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             const SizedBox(width: 6),
             const CircleAvatar(
               radius: 14,
               backgroundColor: Colors.white,
               child: Icon(Icons.arrow_forward, color: Color(0xFF3A8DFF)),
-            )
+            ),
           ],
         ),
       ),
@@ -356,8 +445,11 @@ class _SocialButton extends StatelessWidget {
   final IconData icon;
   final String text;
   final VoidCallback onTap;
-  const _SocialButton(
-      {required this.icon, required this.text, required this.onTap});
+  const _SocialButton({
+    required this.icon,
+    required this.text,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -365,19 +457,23 @@ class _SocialButton extends StatelessWidget {
       height: 55,
       width: double.infinity,
       decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(14),
-          boxShadow: [
-            BoxShadow(
-                color: Colors.grey.withOpacity(0.1),
-                blurRadius: 8,
-                offset: const Offset(0, 3))
-          ]),
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(14),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.1),
+            blurRadius: 8,
+            offset: const Offset(0, 3),
+          ),
+        ],
+      ),
       child: TextButton.icon(
         onPressed: onTap,
         icon: Icon(icon, color: Colors.black, size: 26),
-        label: Text(text,
-            style: const TextStyle(color: Colors.black, fontSize: 16)),
+        label: Text(
+          text,
+          style: const TextStyle(color: Colors.black, fontSize: 16),
+        ),
       ),
     );
   }

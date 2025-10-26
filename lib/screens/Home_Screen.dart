@@ -1,11 +1,11 @@
 // ignore_for_file: deprecated_member_use, file_names
 
-import 'package:edupro/screens/All_Category_Screen.dart';
+import 'package:edupro/screens/all_Category_Screen.dart';
 import 'package:edupro/screens/Notification_Screen.dart';
 import 'package:edupro/screens/profile_settings_page.dart';
 import 'package:flutter/material.dart';
 
-import 'All_programs_screen.dart';
+import 'all_programs_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -47,20 +47,48 @@ class _HomeScreenState extends State<HomeScreen> {
         unselectedItemColor: Colors.grey,
         showUnselectedLabels: true,
         items: [
-          const BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
-          BottomNavigationBarItem(icon: IconButton(onPressed: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) =>AllCategoryScreen(),));
-          }, icon: Icon(Icons.search)), label: "Explore"),
+          const BottomNavigationBarItem(
+            icon: Icon(Icons.home_filled),
+            label: "Home",
+          ),
           BottomNavigationBarItem(
-            icon: IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => PopularCoursesScreen(),));
-            }, icon:Icon(Icons.menu_book_outlined)),
+            icon: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => AllCategoryScreen()),
+                );
+              },
+              icon: Icon(Icons.search),
+            ),
+            label: "Explore",
+          ),
+          BottomNavigationBarItem(
+            icon: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PopularCoursesScreen(),
+                  ),
+                );
+              },
+              icon: Icon(Icons.menu_book_outlined),
+            ),
             label: "Programs",
           ),
           BottomNavigationBarItem(
-            icon: IconButton(onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (context) => ProfileSettingsPage(),));
-            }, icon: const Icon(Icons.person)),
+            icon: IconButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProfileSettingsPage(),
+                  ),
+                );
+              },
+              icon: const Icon(Icons.person),
+            ),
             label: "Profile",
           ),
         ],
@@ -107,9 +135,19 @@ class _HomeScreenState extends State<HomeScreen> {
                     shape: BoxShape.circle,
                     border: Border.all(color: Colors.blueAccent, width: 1.5),
                   ),
-                  child:IconButton(onPressed: (){
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationScreen(),));
-                  }, icon: Icon(Icons.notifications),padding: EdgeInsets.all(0),color: Colors.blueAccent,)
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => NotificationScreen(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.notifications),
+                    padding: EdgeInsets.all(0),
+                    color: Colors.blueAccent,
+                  ),
                 ),
               ],
             ),
