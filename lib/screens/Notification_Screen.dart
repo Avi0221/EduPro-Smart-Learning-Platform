@@ -5,150 +5,159 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> notifications = [
-      {
-        "section": "Today",
-        "items": [
-          {
-            "icon": Icons.category,
-            "iconBg": Colors.grey.shade200,
-            "title": "New Category Course.!",
-            "subtitle": "New the 3D Design Course is Availa..",
-          },
-          {
-            "icon": Icons.folder_special,
-            "iconBg": Colors.blue.shade700,
-            "title": "New Category Course.!",
-            "subtitle": "New the 3D Design Course is Availa...",
-            "iconColor": Colors.white,
-          },
-          {
-            "icon": Icons.confirmation_number,
-            "iconBg": Colors.grey.shade200,
-            "title": "Today's Special Offers",
-            "subtitle": "You Have made a Coure Payment.",
-          },
-        ],
-      },
-      {
-        "section": "Yesterday",
-        "items": [
-          {
-            "icon": Icons.credit_card,
-            "iconBg": Colors.grey.shade200,
-            "title": "Credit Card Connected.!",
-            "subtitle": "Credit Card has been Linked.!",
-          }
-        ]
-      },
-      {
-        "section": "Oct 20, 2025",
-        "items": [
-          {
-            "icon": Icons.person,
-            "iconBg": Colors.grey.shade200,
-            "title": "Account Setup Successful.!",
-            "subtitle": "Your Account has been Created.",
-          }
-        ]
-      }
-    ];
+    const gradientColors = [Color(0xFF6C63FF), Color(0xFF3A8DFF)];
 
     return Scaffold(
-        backgroundColor: Colors.blueGrey[50],
-        appBar: AppBar(
-          backgroundColor: Colors.blueGrey[50],
-          elevation: 0,
-          toolbarHeight: 70,
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back,
-              color: Color(0xFF232555),
-              size: 28,
-            ),
-            onPressed: () => Navigator.pop(context),
-          ),
-          title: const Text(
-            "Notifications",
-            style: TextStyle(
-              color: Color(0xFF232555),
-              fontWeight: FontWeight.bold,
-              fontSize: 26,
-            ),
-          ),
-          centerTitle: false,
-        ),
-        body: ListView(
-            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+      backgroundColor: const Color(0xFFF7F8FC),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-            ...notifications.map((section) => Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-        const SizedBox(height: 22),
-    Text(
-    section["section"],
-    style: const TextStyle(
-    fontWeight: FontWeight.bold,
-    fontSize: 18,
-    color: Color(0xFF232555),
-    ),
-    ),
-    const SizedBox(height: 8),
-    ...List<Widget>.from(section["items"].map<Widget>((item) => Padding(
-    padding: const EdgeInsets.only(bottom: 16),
-    child: NotificationCard(
-    icon: item["icon"],
-    iconBg: item["iconBg"],
-    iconColor: item["iconColor"] ?? Colors.black,
-    title: item["title"],
-    subtitle: item["subtitle"],
-    ),
-    )),
-    )],
-    )),
-    ],
-    ),
+              // Header
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.arrow_back, color: Colors.black87),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                  const Text(
+                    "Notifications",
+                    style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black87,
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
+              // Scrollable Notifications
+              Expanded(
+                child: SingleChildScrollView(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        "Today",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+
+                      _buildNotificationCard(
+                        icon: Icons.qr_code_2,
+                        title: "New Category Course.!",
+                        message: "New the 3D Design Course is Available..",
+                        iconBgColor: Colors.white,
+                      ),
+                      _buildNotificationCard(
+                        icon: Icons.category,
+                        title: "New Category Course.!",
+                        message: "New the 3D Design Course is Available..",
+                        gradient: const LinearGradient(
+                          colors: gradientColors,
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                      ),
+                      _buildNotificationCard(
+                        icon: Icons.local_offer_outlined,
+                        title: "Today's Special Offers",
+                        message: "You Have made a Course Payment.",
+                        iconBgColor: Colors.white,
+                      ),
+
+                      const SizedBox(height: 20),
+                      const Text(
+                        "Yesterday",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+
+                      _buildNotificationCard(
+                        icon: Icons.credit_card,
+                        title: "Credit Card Connected.!",
+                        message: "Credit Card has been Linked.!",
+                        iconBgColor: Colors.white,
+                      ),
+
+                      const SizedBox(height: 20),
+                      const Text(
+                        "Nov 20, 2022",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black87,
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+
+                      _buildNotificationCard(
+                        icon: Icons.person_outline,
+                        title: "Account Setup Successful.!",
+                        message: "Your Account has been Created.",
+                        iconBgColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
-}
 
-class NotificationCard extends StatelessWidget {
-  final IconData icon;
-  final Color iconBg;
-  final Color iconColor;
-  final String title;
-  final String subtitle;
-
-  const NotificationCard({
-    super.key,
-    required this.icon,
-    required this.iconBg,
-    required this.iconColor,
-    required this.title,
-    required this.subtitle,
-  });
-
-  @override
-  Widget build(BuildContext context) {
+  Widget _buildNotificationCard({
+    required IconData icon,
+    required String title,
+    required String message,
+    Color? iconBgColor,
+    LinearGradient? gradient,
+  }) {
     return Container(
+      margin: const EdgeInsets.only(bottom: 14),
       decoration: BoxDecoration(
-        color: Colors.blue.shade50,
-        borderRadius: BorderRadius.circular(22),
+        color: const Color(0xFFEFF4FF),
+        borderRadius: BorderRadius.circular(16),
       ),
       child: Padding(
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.all(14.0),
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            // Icon Container
             Container(
+              width: 46,
+              height: 46,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: iconBg,
+                color: iconBgColor,
+                gradient: gradient,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black12,
+                    blurRadius: 4,
+                    offset: const Offset(0, 2),
+                  )
+                ],
               ),
-              width: 56, height: 56,
-              child: Icon(icon, color: iconColor, size: 32),
+              child: Icon(icon, color: gradient != null ? Colors.white : Colors.black87, size: 24),
             ),
-            const SizedBox(width: 14),
+            const SizedBox(width: 16),
+
+            // Texts
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,18 +165,17 @@ class NotificationCard extends StatelessWidget {
                   Text(
                     title,
                     style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      color: Color(0xFF232555),
-                      fontSize: 19,
+                      fontWeight: FontWeight.w700,
+                      fontSize: 16,
+                      color: Color(0xFF1C1C1C),
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    subtitle,
+                    message,
                     style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 16,
-                      fontWeight: FontWeight.w400,
+                      fontSize: 14,
+                      color: Colors.black54,
                     ),
                   ),
                 ],
