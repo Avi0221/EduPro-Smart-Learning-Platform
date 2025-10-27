@@ -1,6 +1,8 @@
-// ignore_for_file: deprecated_member_use
+
 
 import 'package:edupro/screens/home_screen.dart';
+import 'package:edupro/screens/register_screen.dart';
+import 'package:edupro/screens/signin_screen.dart';
 import 'package:flutter/material.dart';
 
 // Excelerate Gradient
@@ -23,6 +25,36 @@ class LetsYouInScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Center(
+                child: Column(
+                  children: [
+                    Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                        color: Color(0xFF6A5AE0),
+                        borderRadius: BorderRadius.circular(20),
+                      ),
+                      child: Icon(Icons.school, color: Colors.white, size: 50),
+                    ),
+                    // Image.asset('assets/LOGO.png', height: 80),
+                    const SizedBox(height: 10),
+                    const Text(
+                      "EDUPRO",
+                      style: TextStyle(
+                        color: Color(0xFF3A2E8A),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const Text(
+                      "LEARN FROM HOME",
+                      style: TextStyle(color: Colors.black54),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 40),
               const Text(
                 "Let's you in",
                 style: TextStyle(
@@ -60,7 +92,7 @@ class LetsYouInScreen extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (_) => const LoginScreen()),
+                    MaterialPageRoute(builder: (_) => LoginScreen()),
                   );
                 },
               ),
@@ -77,7 +109,7 @@ class LetsYouInScreen extends StatelessWidget {
                     onTap: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => const SignUpScreen()),
+                        MaterialPageRoute(builder: (_) => RegisterScreen()),
                       );
                     },
                     child: const Text(
@@ -97,274 +129,6 @@ class LetsYouInScreen extends StatelessWidget {
     );
   }
 }
-
-// ---------------- SIGN IN ----------------
-
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF7F8FC),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Column(
-                  children: [
-                    // Image.asset('assets/LOGO.png', height: 80),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "EDUPRO",
-                      style: TextStyle(
-                        color: Color(0xFF3A2E8A),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      "LEARN FROM HOME",
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 40),
-              const Text(
-                "Let’s Sign In.!",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF1B1D3A),
-                ),
-              ),
-              const SizedBox(height: 6),
-              const Text(
-                "Login to Your Account to Continue your Courses",
-                style: TextStyle(color: Colors.grey),
-              ),
-              const SizedBox(height: 30),
-
-              const _InputField(hint: "Email", icon: Icons.email_outlined),
-              const SizedBox(height: 20),
-              const _InputField(
-                hint: "Password",
-                icon: Icons.lock_outline,
-                isPassword: true,
-              ),
-
-              const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [
-                      Checkbox(value: false, onChanged: (v) {}),
-                      const Text("Remember Me"),
-                    ],
-                  ),
-                  const Text(
-                    "Forgot Password?",
-                    style: TextStyle(color: Colors.teal),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-
-              _GradientButton(
-                text: "Sign In",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                  );
-                },
-              ),
-
-              const SizedBox(height: 30),
-              const Center(
-                child: Text(
-                  "Or Continue With",
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ),
-              const SizedBox(height: 20),
-
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _SocialCircle(icon: Icons.g_mobiledata),
-                  SizedBox(width: 20),
-                  _SocialCircle(icon: Icons.apple),
-                ],
-              ),
-              const SizedBox(height: 30),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Don’t have an Account? ",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const SignUpScreen()),
-                      );
-                    },
-                    child: const Text(
-                      "SIGN UP",
-                      style: TextStyle(
-                        color: Color(0xFF3A8DFF),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-// ---------------- SIGN UP ----------------
-
-class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF7F8FC),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 40),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Column(
-                  children: [
-                    // Image.asset('assets/logo.png', height: 80),
-                    const SizedBox(height: 10),
-                    const Text(
-                      "EDUPRO",
-                      style: TextStyle(
-                        color: Color(0xFF3A2E8A),
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const Text(
-                      "LEARN FROM HOME",
-                      style: TextStyle(color: Colors.black54),
-                    ),
-                  ],
-                ),
-              ),
-              const SizedBox(height: 40),
-              const Text(
-                "Getting Started.!",
-                style: TextStyle(
-                  fontSize: 22,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF1B1D3A),
-                ),
-              ),
-              const SizedBox(height: 6),
-              const Text(
-                "Create an Account to Continue your all Courses",
-                style: TextStyle(color: Colors.grey),
-              ),
-              const SizedBox(height: 30),
-
-              const _InputField(hint: "Email", icon: Icons.email_outlined),
-              const SizedBox(height: 20),
-              const _InputField(
-                hint: "Password",
-                icon: Icons.lock_outline,
-                isPassword: true,
-              ),
-              const SizedBox(height: 10),
-
-              Row(
-                children: [
-                  Checkbox(value: true, onChanged: (v) {}),
-                  const Text("Agree to Terms & Conditions"),
-                ],
-              ),
-              const SizedBox(height: 20),
-
-              _GradientButton(
-                text: "Sign Up",
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomeScreen()),
-                  );
-                },
-              ),
-
-              const SizedBox(height: 30),
-              const Center(
-                child: Text(
-                  "Or Continue With",
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ),
-              const SizedBox(height: 20),
-
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  _SocialCircle(icon: Icons.g_mobiledata),
-                  SizedBox(width: 20),
-                  _SocialCircle(icon: Icons.apple),
-                ],
-              ),
-              const SizedBox(height: 30),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    "Already have an Account? ",
-                    style: TextStyle(color: Colors.grey),
-                  ),
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (_) => const LoginScreen()),
-                      );
-                    },
-                    child: const Text(
-                      "SIGN IN",
-                      style: TextStyle(
-                        color: Color(0xFF3A8DFF),
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
 // ---------------- REUSABLE WIDGETS ----------------
 
 class _InputField extends StatelessWidget {
