@@ -1,28 +1,3 @@
-// import 'package:edupro/screens/Splash_Screen.dart';
-// import 'package:flutter/material.dart';
-//
-// void main() {
-//   runApp(EduProApp());
-// }
-//
-// class EduProApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'EDUPRO',
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         primaryColor: Color(0xFF6A5AE0),
-//         scaffoldBackgroundColor: Colors.white,
-//         fontFamily: 'Inter',
-//       ),
-//       home: SplashScreen(),
-//     );
-//   }
-// }
-
-// ========== SCREEN 1: SPLASH SCREEN ==========
-// ignore_for_file: library_private_types_in_public_api, unnecessary_import, use_build_context_synchronously, file_names, deprecated_member_use
 
 import 'package:edupro/screens/auth_screens.dart';
 import 'package:flutter/cupertino.dart';
@@ -39,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 3), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => OnboardingScreen()),
@@ -253,108 +228,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 }
 
-// ========== SCREEN 3: LOGIN SCREEN ==========
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(24),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SizedBox(height: 20),
-                Text(
-                  "Let's you in",
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                ),
-                SizedBox(height: 40),
-                _buildSocialButton(
-                  icon: Icons.g_mobiledata,
-                  text: 'Continue with Google',
-                ),
-                SizedBox(height: 16),
-                _buildSocialButton(
-                  icon: Icons.apple,
-                  text: 'Continue with Apple',
-                ),
-                SizedBox(height: 30),
-                Row(
-                  children: [
-                    Expanded(child: Divider()),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Text('Or'),
-                    ),
-                    Expanded(child: Divider()),
-                  ],
-                ),
-                SizedBox(height: 30),
-                SizedBox(
-                  width: double.infinity,
-                  height: 50,
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF6A5AE0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                    ),
-                    child: Text(
-                      'Sign in with password',
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 30),
-                Center(
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignupScreen()),
-                      );
-                    },
-                    child: RichText(
-                      text: TextSpan(
-                        text: "Don't have an Account? ",
-                        style: TextStyle(color: Colors.grey[600]),
-                        children: [
-                          TextSpan(
-                            text: "SIGN UP",
-                            style: TextStyle(
-                              color: Color(0xFF6A5AE0),
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildSocialButton({required IconData icon, required String text}) {
+Widget _buildSocialButton({required IconData icon, required String text}) {
     return Container(
       height: 50,
       decoration: BoxDecoration(
@@ -374,21 +248,6 @@ class LoginScreen extends StatelessWidget {
         ),
       ),
     );
-  }
 }
 
-// ========== SCREEN 4: SIGNUP SCREEN ==========
-class SignupScreen extends StatelessWidget {
-  const SignupScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Sign Up"),
-        backgroundColor: Color(0xFF6A5AE0),
-      ),
-      body: Center(child: Text("Signup Page (Coming Soon)")),
-    );
-  }
-}
