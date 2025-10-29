@@ -37,16 +37,23 @@ It offers an engaging, data-driven learning experience that enables users to exp
 <p align="center">
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/Splash_Screen.png" width="200"/>
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/Onboarding_Screen.png" width="200"/>
-  <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/SignUp_Screen.png" width="200"/>
+  <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/LetYOUIN_Screen.png" width="200"/>
+</p>
+<p align="center">
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/SignIn_Screen.png" width="200"/>
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/SignUp_Screen.png" width="200"/>
+  <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/Notification_Screen.png" width="200"/>
 </p>
-
 <p align="center">
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/Home_Screen.png" width="200"/>
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/AllCategory_Screen.png" width="200"/>
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/ProgramListing_Screen.png" width="200"/>
+</p>
+
+<p align="center">
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/ProgramDetails_Screen.png" width="200"/>
+  <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/EnrollForm_Screen.png" width="200"/>
+  <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/EnrollSuccess_Screen.png" width="200"/>
   <img src="https://github.com/Avi0221/EduPro-Smart-Learning-Platform/blob/main/assets/images/Profile_Screen.png" width="200"/>
 </p>
 
