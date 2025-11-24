@@ -61,10 +61,8 @@ It offers an engaging, data-driven learning experience that enables users to exp
 
 ## 🎥 **Demo Video**
 
-🚀 *Final Demo Coming Soon!*
-
 ```text
-🎬 Video Link: [To be added soon]
+🎬 Video Link: (https://drive.google.com/file/d/1FJZVhTsNknnyBptQKzxtQQUZc6E0EjYg/view?usp=drive_link)
 ```
 
 ---
