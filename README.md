@@ -62,7 +62,7 @@ It offers an engaging, data-driven learning experience that enables users to exp
 ## 🎥 **Demo Video**
 
 
-🎬 [EduPro Demo] (https://drive.google.com/file/d/1FJZVhTsNknnyBptQKzxtQQUZc6E0EjYg/view?usp=drive_link)
+🎬 [EduPro Demo](https://drive.google.com/file/d/1FJZVhTsNknnyBptQKzxtQQUZc6E0EjYg/view?usp=drive_link)
 
 
 ---
